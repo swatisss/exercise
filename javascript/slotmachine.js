@@ -1,21 +1,29 @@
+   var timers,
+         nums,
+    stopCount;
 
-window.onload = function(){
-   timers = [];
-   nums = [];
-   stopCount = 0;
+    function startSlot(){
+      timers = [];
+      nums = [];
+      stopCount = 0;
 
-   runSlot(1);
-   runSlot(2);
-   runSlot(3);
+      runSlot(0);
+      runSlot(1);
+      runSlot(2);
+   };
 
-   for(var i = 1; i <= 3; i++){
-      document.getElementById('stop'+i).onclick = function(){
-         console.log(i);
-         stopSlot(i);
-      };
-   }
+   document.getElementById('stop0').onclick = function(){
+      stopSlot(0);
+   };
 
-}
+   document.getElementById('stop1').onclick = function(){
+      stopSlot(1);
+   };
+
+   document.getElementById('stop2').onclick = function(){
+      stopSlot(2);
+   };
+
 
 function runSlot(n){
    document.getElementById('num'+n).innerHTML = Math.floor(Math.random() * 10);
@@ -28,11 +36,11 @@ function runSlot(n){
 function stopSlot(n){
    clearTimeout(timers[n]);
    console.log(n);
+   // ここで、TypeErrorがでるのはなぜ？
    nums[n] = document.getElementById('num'+n).innerHTML;
    stopCount++;
 
    if(stopCount == 3){
-
       checkSlot();
    }
 }
