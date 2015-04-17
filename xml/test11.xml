@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE P SYSTEM "dtd11.dtd">
+
+<P>
+   <Q a="A1">test1</Q>
+   <Q a="A2">test2</Q>
+   <R aref="A1 A2" b="B">test</R>
+   <R aref="A1 A2">test</R>
+</P>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE P SYSTEM "dtd6.dtd">
+
+<P>
+   <Q>
+      <R>001</R><S/><T>test</T>
+      <R>002</R><S/><U>test</U>
+      <R>003</R><S/><U>test</U><U>test</U>
+      <R>003</R><S/><U>test</U><U>test</U>
+      <R>003</R><S/>
+   </Q>
+</P>

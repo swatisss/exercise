@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE P SYSTEM "dtd7.dtd">
+<P>
+   <Q a="tera">test1</Q>
+   <Q a="ip">test2</Q>
+   <Q>test1</Q>
+</P>

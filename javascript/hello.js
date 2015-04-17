@@ -14,7 +14,7 @@ if(ans == true){
 
 document.getElementById("add").addEventListener("click", function(){
     var greet = document.createElement("p");
-    var text = document.createTextNode("Hello,World！");
+    var text = document.createTextNode("Hello,World");
     document.body.appendChild(greet).appendChild(text);
 
 });
