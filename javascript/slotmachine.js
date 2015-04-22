@@ -10,7 +10,7 @@
       runSlot(0);
       runSlot(1);
       runSlot(2);
-   };
+   }
 
    document.getElementById('stop0').onclick = function(){
       stopSlot(0);
