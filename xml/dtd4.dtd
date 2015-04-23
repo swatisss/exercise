@@ -1,4 +1,0 @@
-<!ELEMENT P (Q+)>
-<!ELEMENT Q (R, S)+>
-<!ELEMENT R (#PCDATA)>
-<!ELEMENT S EMPTY>

@@ -1,3 +1,0 @@
-<!ELEMENT P (Q+)>
-<!ELEMENT Q (#PCDATA)>
-<!ATTLIST Q a (tera|ip) #IMPLIED>

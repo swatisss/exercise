@@ -17,4 +17,23 @@
          <servlet-name>ParamTest</servlet-name>
          <url-pattern>/paramtest</url-pattern>
       </servlet-mapping>
+
+      <servlet>
+         <servlet-name>RequestTest</servlet-name>
+         <servlet-class>RequestTest</servlet-class>
+      </servlet>
+      <servlet-mapping>
+         <servlet-name>RequestTest</servlet-name>
+         <url-pattern>/requesttest</url-pattern>
+      </servlet-mapping>
+
+      <servlet>
+         <servlet-name>checktest</servlet-name>
+         <servlet-class>CheckTest</servlet-class>
+      </servlet>
+      <servlet-mapping>
+         <servlet-name>checktest</servlet-name>
+         <url-pattern>/check</url-pattern>
+      </servlet-mapping>
+
    </web-app>

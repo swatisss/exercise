@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE article SYSTEM "dtdttc.dtd">
+
+<article>
+  <title>学校紹介</title>
+  <subtitle>キャンパス案内</subtitle>
+  <subtitle>地図＆交通案内</subtitle>
+  <menu>地図</menu>
+  &map;
+  <menu>交通案内</menu>
+  &access;
+</article>

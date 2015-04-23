@@ -1,0 +1,13 @@
+	<shain>
+		<mcode>001</mcode>
+		<mname>高橋</mname>
+		<address>東京</address>
+		<salary>180000</salary>
+	</shain>
+	<shain>
+		<mcode>002</mcode>
+		<mname>渡辺</mname>
+		<address>大阪</address>
+		<salary>220000</salary>
+	</shain>
+

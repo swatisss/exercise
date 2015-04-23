@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE product SYSTEM "dtdbook.dtd">
+
+<product>
+	<book>
+		<code>001</code>
+		<title>Java入門</title>
+		<name>&name1;</name>
+		<price>
+			<tax-excluded>2800</tax-excluded>
+		</price>
+		<meibo>&filename;</meibo>
+	</book>
+	<book>
+		<code>002</code>
+		<title>C言語応用</title>
+		<name>&name1;</name>
+		<price>
+			<tax-included>3500</tax-included>
+		</price>
+		<meibo>&filename;</meibo>
+	</book>
+ </product>

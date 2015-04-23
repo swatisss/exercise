@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE product[
+   <!ELEMENT product (book+)>
+   <!ELEMENT book (code,title,name,price)>
+   <!ELEMENT code (#PCDATA)>
+   <!ELEMENT title (#PCDATA)>
+   <!ELEMENT name (#PCDATA)>
+   <!ELEMENT price (tax-excluded|tax-included)>
+   <!ELEMENT file (#PCDATA)>
+   <!ELEMENT tax-excluded (#PCDATA)>
+   <!ELEMENT tax-included (#PCDATA)>
+   <!ENTITY name1 "山田太郎">
+   <!ENTITY filename "meibo1.xml">
+]>
+
+<product>
+   <book>
+      <code>001</code>
+      <title>Java入門</title>
+      <name>&name1;</name>
+      <price>
+         <tax-excluded>2800</tax-excluded>
+      </price>
+      <file>&filename;</file>
+   </book>
+</product>

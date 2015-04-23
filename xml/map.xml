@@ -1,0 +1,11 @@
+<map>
+  <img src="img1"/>
+  <img src="img2"/>
+  <info>
+    <name>専門学校 東京テクニカルカレッジ</name>
+      <code>〒164-8787</code>
+      <address>東京都中野区東中野4-2-3</address>
+      <tel>TEL:03-3360-8881</tel>
+      <fax>FAX:03-3360-8820</fax>
+  </info>
+</map>

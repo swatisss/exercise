@@ -20,7 +20,7 @@ class OracleInsertTest{
          System.out.println("接続完了");
 
          // SQL文の用意
-         String sql = "INSERT INTO emp(empno, ename) VALUES(9001,'OHARAZAWA')";
+         String sql = "INSERT INTO emp(empno, ename) VALUES(9002,'OHARAZAWA')";
 
          // Statementインターフェイスを実装するクラスのインスタンスを取得。
          Statement st = con.createStatement();
@@ -39,6 +39,7 @@ class OracleInsertTest{
          st.close();
          // RDBMSから切断
          con.close();
+         System.out.println("切断完了");
       }catch(ClassNotFoundException e){
          e.printStackTrace();
       }catch(SQLException e){

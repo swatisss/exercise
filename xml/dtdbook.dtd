@@ -1,0 +1,16 @@
+<!ELEMENT product (book+)>
+<!ELEMENT book (code,title,name,price,meibo)>
+<!ELEMENT code (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT price (tax-excluded|tax-included)>
+<!ELEMENT tax-excluded (#PCDATA)>
+<!ELEMENT tax-included (#PCDATA)>
+<!ELEMENT meibo (shain+)>
+<!ELEMENT shain (mcode,mname,address,salary)>
+<!ELEMENT mcode (#PCDATA)>
+<!ELEMENT mname (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT salary (#PCDATA)>
+<!ENTITY name1 SYSTEM "dtdbook.dtd">
+<!ENTITY filename SYSTEM "dtdbook.dtd">

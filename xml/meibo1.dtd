@@ -1,0 +1,6 @@
+<!ELEMENT meibo (shain+)>
+<!ELEMENT shain (code,name,address,salary)>
+<!ELEMENT code (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT salary (#PCDATA)>
