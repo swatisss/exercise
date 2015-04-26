@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A92B4BFE-9F8D-46A6-BA65-EE43758C9F25</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MyFirstApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>905F9C07755739580735A24F61F693C8B98BFFA0</key>
+		<string>https://github.com/blue-210/exercise.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MyFirstApp/MyFirstApp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>905F9C07755739580735A24F61F693C8B98BFFA0</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/blue-210/exercise.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>905F9C07755739580735A24F61F693C8B98BFFA0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>905F9C07755739580735A24F61F693C8B98BFFA0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>exercise</string>
+		</dict>
+	</array>
+</dict>
+</plist>
