@@ -1,0 +1,66 @@
+
+//JDBCプログラム作成演習（カーソルのスクロール）
+
+// 練習問題1
+rs.last();
+
+while(rs.previous()){
+   String eno = rs.getString(1);
+   String ename = rs.getString(2);
+   System.out.println("eno = "+ eno);
+   System.out.println("ename = "+ ename);
+}
+
+// 練習問題2
+rs.next();
+
+boolean stopFlag = false;
+while(rs.next()){
+   if(rs.isLast() && stopFlag == false){
+      rs.first();
+      stopFlag = true;
+      System.out.println("\n");
+   }
+   String eno = rs.getString(1);
+   String ename = rs.getString(2);
+   System.out.println("eno = "+ eno);
+   System.out.println("ename = "+ ename);
+}
+
+// 練習問題3
+rs.next();
+
+String empno = rs.getString(1);
+String ename = rs.getString(2);
+
+System.out.println("empno = "+ empno);
+System.out.println("ename = "+ ename);
+
+while(rs.relative(2)){
+   empno = rs.getString(1);
+   ename = rs.getString(2);
+
+   System.out.println("empno = "+ empno);
+   System.out.println("ename = "+ ename);
+}
+
+// 練習問題4
+rs.next();
+
+rs.absolute(1);
+ empno = rs.getString(1);
+ ename = rs.getString(2);
+ System.out.println("empno = " + empno);
+ System.out.println("ename = " + ename);
+
+rs.absolute(3);
+ empno = rs.getString(1);
+ ename = rs.getString(2);
+ System.out.println("empno = " + empno);
+ System.out.println("ename = " + ename);
+
+rs.absolute(7);
+ empno = rs.getString(1);
+ ename = rs.getString(2);
+ System.out.println("empno = " + empno);
+ System.out.println("ename = " + ename);
