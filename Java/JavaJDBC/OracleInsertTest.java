@@ -5,12 +5,14 @@ import java.sql.Statement;
 
 class OracleInsertTest{
    public static void main(String[] args) {
+      Connection con = null;
+      Statement st = null;
       try{
          // Driverインターフェイスを実装したクラスをロード
          Class.forName("oracle.jdbc.driver.OracleDriver");
 
          // Connectionインターフェイスを実装するクラスのインスタンスをゲット
-         Connection con = DriverManager.getConnection(
+         con = DriverManager.getConnection(
          "jdbc:oracle:thin:@localhost:1521:orcl",
          "scott",
          "tiger");
@@ -20,10 +22,10 @@ class OracleInsertTest{
          System.out.println("接続完了");
 
          // SQL文の用意
-         String sql = "INSERT INTO emp(empno, ename) VALUES(9002,'OHARAZAWA')";
+         String sql = "INSERT INTO emp(empno, ename) VALUES(9004,'ぶるー')";
 
          // Statementインターフェイスを実装するクラスのインスタンスを取得。
-         Statement st = con.createStatement();
+         st = con.createStatement();
 
          // SQL文の実行。トランザクションが開始される。
          // executeUpdate()メソッドは戻り値として処理した件数を返す。
@@ -33,18 +35,31 @@ class OracleInsertTest{
 
          // トランザクションをコミット
          con.commit();
-
-         // リソースの開放。これを怠るとロックが開放されない、RDBMSの接続が切断されないなどの問題が発生する。
-         // ステートメントをクローズ
-         st.close();
-         // RDBMSから切断
-         con.close();
-         System.out.println("切断完了");
       }catch(ClassNotFoundException e){
          e.printStackTrace();
       }catch(SQLException e){
-         // rollback()処理を入れるならここ。ただし、rollback()自体がSQLExceptionをスローするので、try-catchが必要。
          e.printStackTrace();
+         if(con != null && st != null){
+            try{
+               con.rollback();
+               System.out.println("ロールバック完了");
+            }catch(SQLException ex){
+               ex.printStackTrace();
+            }
+         }
+      }finally{
+         try{
+            if(st != null){
+               st.close();
+            }
+
+            if(con != null){
+               con.close();
+            }
+            System.out.println("リソースの解放");
+         }catch(SQLException e){
+            e.printStackTrace();
+         }
       }
    }
 }
