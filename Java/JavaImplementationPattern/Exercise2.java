@@ -39,6 +39,7 @@ class Student{
       return -1;
    }
 
+   //ComposedMethodの適用
    public void getTestDetail(){
       if(this.getPoint() == -1){
          System.out.println(this.getName()+": テストを受験していません。");
