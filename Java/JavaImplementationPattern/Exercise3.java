@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 
 class Exercise3 {
    public static void main(String[] args) {
@@ -73,7 +72,7 @@ class School {
    }
 
    public void removeNotExaminedStudent(){
-      
+
       for(int i = 1; i < students.size(); i++){
          Student student = (Student)students.get(i);
          if(!isExamined(student)){
