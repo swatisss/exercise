@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="students">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="student" type="studentType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="studentType">
+		<xs:sequence>
+				<xs:element name="no" type="xs:positiveInteger"/>
+				<xs:element name="name" type="xs:string"/>
+				<xs:element name="birthday" type="xs:time"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

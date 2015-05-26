@@ -1,12 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"　 encoding="UTF-8"?>
+<name xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance"
+	  xsi:noNamespaceSchemaLocation="test1.xsd">
 
-<!DOCTYPE P SYSTEM "dtd3.dtd">
+阿部太郎
 
-<P>
-   <Q>
-      <R>001</R><S>test1</S>
-   </Q>
-   <Q>
-      <R>002</R><S>test2</S>
-   </Q>
-</P>
+</name>
