@@ -1,7 +1,13 @@
-import java.junit.framework.*;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
-public class DogTest extends TestCase{
-   public DogTest(String name){
-      super(name);
+public class DogTest{
+
+   @Test
+   public void testGetName(){
+      String name ="pochi";
+
+      Dog dog = new Dog(name);
+      assertEquals(name, dog.getName());
    }
 }
