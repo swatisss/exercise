@@ -4,7 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javqx.servlet.RequestDispatcher;
+import javax.servlet.RequestDispatcher;
 
 import bean.Bean;
 
@@ -21,7 +21,7 @@ public class TwoServlet extends HttpServlet{
          bean.setStr1(str1);
          bean.setStr2(str2);
 
-         res.setContentType("text/html; charset=Windows-31J");
+         res.setContentType("text/html; charset=UTF-8");
          req.setAttribute("bean", bean);
 
          RequestDispatcher dis = req.getRequestDispatcher("/result");

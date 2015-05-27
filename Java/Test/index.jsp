@@ -1,10 +1,10 @@
-<%@ page contentType="text/html; charset=Windows-31J"
-   pageEncoding="Windows-31J"
+<%@ page contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"
 %>
 
 <!DOCTYPE HTML>
    <head>
-      <title>Page Title</title>
+      <title>テスト</title>
    </head>
    <body>
       <form class="" action="servlet" method="GET">

@@ -1,5 +1,5 @@
-<%@ page contentType="text/html; charset=Windows-31J"
-   pageEncoding="Windows-31J"
+<%@ page contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"
 %>
 
 <!DOCTYPE html>
