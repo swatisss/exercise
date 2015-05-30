@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class SendInquiry
  */
+@WebServlet("/MailTest")
 public class MailTest extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -43,8 +44,8 @@ public class MailTest extends HttpServlet {
         String title = request.getParameter("title");
         String message = request.getParameter("message");
 
-        System.out.println("タイトル：" + title);
-        System.out.println("メッセージ" + message);
+        //System.out.println("タイトル：" + title);
+        //System.out.println("メッセージ" + message);
 
         response.setContentType("text/html; charset=UTF-8");
 
@@ -65,12 +66,12 @@ public class MailTest extends HttpServlet {
             MimeMessage mimeMessage = new MimeMessage(session);
 
             InternetAddress toAddress =
-                    new InternetAddress("godfukuda@example.com", "godfukuda");
+                    new InternetAddress("blue210@example.com", "blue210");
 
             mimeMessage.setRecipient(Message.RecipientType.TO, toAddress);
 
             InternetAddress fromAddress =
-                    new InternetAddress("godfukuda@example.com","godfukuda");
+                    new InternetAddress("blue210@example.com","blue210");
 
             mimeMessage.setFrom(fromAddress);
 
