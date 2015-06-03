@@ -7,37 +7,42 @@ class Ex_FactoryMethod{
       Client cl = new Client(stholder);
       Client cl2 = new Client(arholder);
 
-      cl.operation("ぶるー");
-      cl2.operation("ぶるー2");
+      cl.execute("データをファイルに保存します。");
+      cl2.execute("データをOracleに保存します。");
    }
 }
 
-// Template Methodの適用
-// データを格納して保存するまでの一連の処理の流れを定義
-abstract class SaveProcessCaller{
-   public final
-   // 格納用クラスにデータをセットする
-   holder.setData(data);
-   // セーブ用クラスをFactoryMethodでインスタンス化する。
-   DataSaver saver = holder.createDataSaver();
-   // 作成したインスタンスのメソッドを使い、データをセーブする。
-   saver.save(holder.getData());
-
-}
-
 class Client{
-   
+   private DataHolder holder;
+
+   public Client(DataHolder holder){this.holder = holder;}
+
+   public void execute(String data){
+      holder.callSaveProcess(data);
+   }
 }
 
 // Creator
-interface DataHolder{
-   void setData(String data);
-   String getData();
-   DataSaver createDataSaver();
+abstract class DataHolder{
+   // setterとgetter、FactoryMethodが使われる場所を限定する。
+   protected abstract void setData(String data);
+   protected abstract String getData();
+   protected abstract DataSaver createDataSaver();
+
+   // Template Methodの適用
+   // データを格納して保存するまでの一連の処理の流れを定義
+   public final void callSaveProcess(String data){
+      // 格納用クラスにデータをセットする
+      setData(data);
+      // セーブ用クラスをFactoryMethodでインスタンス化する。
+      DataSaver saver = createDataSaver();
+      // 作成したインスタンスのメソッドを使い、データをセーブする。
+      saver.save(getData());
+   }
 }
 
 // 文字列データを格納するクラス
-class StringDataHolder implements DataHolder{
+class StringDataHolder extends DataHolder{
    private String stringData;
 
    public void setData(String data){
@@ -54,15 +59,15 @@ class StringDataHolder implements DataHolder{
 }
 
 // String配列を格納するクラス
-class StringArrayDataHolder implements DataHolder{
-   private String[] stringArrayData;
+class StringArrayDataHolder extends DataHolder{
+   private String[] stringArrayData = new String[1];
 
    public void setData(String data){
-      this.stringArrayData = data;
+      this.stringArrayData[0] = data;
    }
 
    public String getData(){
-      return this.stringArrayData;
+      return this.stringArrayData[0];
    }
 
    public DataSaver createDataSaver(){
@@ -71,18 +76,20 @@ class StringArrayDataHolder implements DataHolder{
 }
 
 // Product
-abstaract class DataSaver{
+abstract class DataSaver{
    public abstract void save(String data);
 }
 
 // ファイルへセーブするクラス
 class DataSaverToFile extends DataSaver{
-   public void save(){
-
+   public void save(String data){
+      System.out.println(data);
    }
 }
 
 // Oracleにセーブするクラス
 class DataSaverToOracle extends DataSaver{
-
+   public void save(String data){
+      System.out.println(data);
+   }
 }
