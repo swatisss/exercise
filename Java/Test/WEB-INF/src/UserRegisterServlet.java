@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 
+import bean.CustomerBean;
+import ttc.JndiTest;
 
 public class UserRegisterServlet extends HttpServlet{
 
@@ -15,14 +17,15 @@ public class UserRegisterServlet extends HttpServlet{
          req.setCharacterEncoding("utf-8");
 
          String name = req.getParameter("name");
-         String pass = req.getParameter("pass");
+         String age = req.getParameter("age");
 
+         CustomerBean
          res.setContentType("text/html; charset=utf-8");
 
          req.setAttribute("name", name);
-         req.setAttribute("pass", pass);
+         req.setAttribute("age", age);
 
-         RequestDispathcer dispatcher = req.getRequestDispatcher("confirm");
+         RequestDispathcer dispatcher = req.getRequestDispatcher("");
          dispathcer.forward(req, res);
    }
 
@@ -32,12 +35,12 @@ public class UserRegisterServlet extends HttpServlet{
             req.setCharacterEncoding("utf-8");
 
             String name = req.getParameter("name");
-            String pass = req.getParameter("pass");
+            String age = req.getParameter("age");
 
             res.setContentType("text/html;charset=utf-8");
 
             req.setAttribute("name", name);
-            req.setAttribute("pass", pass);
+            req.setAttribute("age", age);
 
             RequestDispatcher dispath = req.getRequestDispatcher("r");
             dispath.forward(req, res);

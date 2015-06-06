@@ -7,9 +7,9 @@
       <title>テスト</title>
    </head>
    <body>
-      <form class="" action="/servlet" method="GET">
-         <input type="text" name="str1" value="">
-         <input type="text" name="str2" value="">
+      <form class="" action="register" method="GET">
+         <input type="text" name="name" value="">
+         <input type="text" name="age" value="">
          <input type="submit" value="送信">
       </form>
    </body>
