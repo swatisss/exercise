@@ -11,8 +11,12 @@ public class CommandEx{
 		int[] intArgs = cl.getArgs(args[0]);
 		String operator = cl.getOperator(args[0]);
 
+      // System.out.println(operator+"ope");
 		// 演算子による処理の分岐
 		cl.setCalRequest(operator);
+
+      int args1 = intArgs[0];
+      int args2 = intArgs[1];
 		cl.doCalculate(intArgs[0], intArgs[1]);
    }
 }
@@ -23,7 +27,7 @@ class Client {
 	// コマンドライン引数から数字を取り出すメソッド
 	public int[] getArgs(String args){
 		// 値だけを取り出す。
-		String[] splitResult = args.split("[/*-/+//]");
+		String[] splitResult = args.split("[\\*\\-\\/\\+]");
 
 		// 値をint型にして、配列に格納する
 		int[] intArgs = new int[2];
@@ -34,11 +38,12 @@ class Client {
 
 	// 計算演算子を取り出すメソッド
 	public String getOperator(String args){
-		System.out.println(args);
 		// 正規表現を使って、受け取った文字列から+-*/を取り出す処理
-		String regex = "[/+/-///*](?=//d{2})";
+
+      String regex = "[\\*\\-/\\+]";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(args);
+      matcher.find();
 		String operator = matcher.group();
 
 		return operator;
