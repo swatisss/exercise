@@ -56,10 +56,9 @@ class Client {
 
 // 演算子の種類によって、必要なクラスを生成するCommandFactoryクラス。
 abstract class RequestFactory {
-	private static HashMap commands;
+	private static HashMap<String, CalculationRequest> commands = new HashMap<>();
 
 	static{
-		commands = new HashMap();
 		commands.put("+", new SumRequest());
 		commands.put("-", new SubstractionRequest());
 		commands.put("*", new MultiplicationRequest());
