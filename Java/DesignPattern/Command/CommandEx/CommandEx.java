@@ -6,18 +6,7 @@ public class CommandEx{
    public static void main(String[] args) {
 
       Client cl = new Client();
-
-		// コマンドラインから入力された値を渡して、数字と計算演算子を分割する
-		int[] intArgs = cl.getArgs(args[0]);
-		String operator = cl.getOperator(args[0]);
-
-      // System.out.println(operator+"ope");
-		// 演算子による処理の分岐
-		cl.setCalRequest(operator);
-
-      int args1 = intArgs[0];
-      int args2 = intArgs[1];
-		cl.doCalculate(intArgs[0], intArgs[1]);
+      cl.doCalculate(args);
    }
 }
 
@@ -25,9 +14,9 @@ class Client {
 	private CalculationRequest calRequest;
 
 	// コマンドライン引数から数字を取り出すメソッド
-	public int[] getArgs(String args){
+	private int[] getArgs(String args){
 		// 値だけを取り出す。
-		String[] splitResult = args.split("[\\*\\-\\/\\+]");
+		String[] splitResult = args.split("\\D");
 
 		// 値をint型にして、配列に格納する
 		int[] intArgs = new int[2];
@@ -37,24 +26,36 @@ class Client {
 	}
 
 	// 計算演算子を取り出すメソッド
-	public String getOperator(String args){
+	private String getOperator(String args){
+      // 演算子を格納する変数
+      String operator = null;
 		// 正規表現を使って、受け取った文字列から+-*/を取り出す処理
-
       String regex = "[\\*\\-/\\+]";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(args);
-      matcher.find();
-		String operator = matcher.group();
 
+      if(matcher.find()){
+         operator = matcher.group();
+      }else{
+         return "再入力";
+      }
 		return operator;
 	}
 
-	public void doCalculate(int args1, int args2){
-		calRequest.execute(args1, args2);
+	public void doCalculate(String[] args){
+      int[] intArgs = this.getArgs(args[0]);
+      String operator = this.getOperator(args[0]);
+
+      if(operator.equals("再入力")){
+         System.out.print("正しく入力されていません。最初からやり直しです。");
+      }else{
+         this.setCalRequest(operator);
+   		calRequest.execute(intArgs[0], intArgs[1]);
+      }
 	}
 
 	// 演算子を引数に取って、演算子ごとの具象Commandクラスをセットする。
-	public void setCalRequest(String operator){
+	private void setCalRequest(String operator){
 		this.calRequest = RequestFactory.getCalRequest(operator);
 	}
 }
