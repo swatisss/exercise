@@ -6,13 +6,15 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Factory{
-   public static void main(String[] args) {
+   private Factory(){}
+
+   public static Object load(String key){
       Object obj = null;
 
       try{
          Properties prop = new Properties();
 
-         prop.load(new FileInputStream("test.properties"));
+         prop.load(new FileInputStream("calc.properties"));
 
          String name = prop.getProperty(key);
 
@@ -32,4 +34,5 @@ public class Factory{
 
       return obj;
    }
+
 }
