@@ -1,5 +1,3 @@
-package tera;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
@@ -11,7 +9,7 @@ public class PropertiesTest {
       Properties prop = new Properties();
 
       try{
-         prop.load(new FileInputStream("/Users/blue210/GitHub/exercise/Java/ObjectOriented/Layers/DI/test.properties"));
+         prop.load(new FileInputStream("test.properties"));
 
          String value1 = prop.getProperty("language");
          String value2 = prop.getProperty("pattern");

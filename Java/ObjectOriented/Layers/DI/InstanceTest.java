@@ -1,5 +1,3 @@
-package tera;
-
 public class InstanceTest{
    public static void main(String[] args) {
       Calculator cl = new IntegerCalculator();
