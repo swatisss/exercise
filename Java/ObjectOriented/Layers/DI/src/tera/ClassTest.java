@@ -1,3 +1,5 @@
+package tera;
+
 import java.util.List;
 
 public class ClassTest{

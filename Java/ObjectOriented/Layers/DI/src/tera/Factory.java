@@ -1,3 +1,4 @@
+package tera;
 // プロパティファイルを利用してインスタンス化を行なう
 
 import java.io.FileInputStream;
@@ -14,10 +15,10 @@ public class Factory{
       try{
          Properties prop = new Properties();
 
-         prop.load(new FileInputStream("calc.properties"));
+         prop.load(new FileInputStream("../calc.properties"));
 
          String name = prop.getProperty(key);
-
+         // System.out.println(name);
          Class c = Class.forName(name);
 
 

@@ -1,3 +1,5 @@
+package tera;
+
 public class IntegerCalculator implements Calculator{
    private Accessor ac;
 
@@ -28,8 +30,4 @@ public class IntegerCalculator implements Calculator{
 
       return ret;
    }
-}
-
-interface Calculator{
-   int plusString(String xStr, String yStr);
 }
