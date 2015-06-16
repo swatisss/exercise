@@ -4,7 +4,7 @@ public class IntegerCalculator implements Calculator{
    private Accessor ac;
 
    public IntegerCalculator(){
-      ac = (Accessor)Factory.load("accessor");
+      ac = (Accessor)XMLFactory.load("accessor");
 
    }
 
