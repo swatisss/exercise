@@ -20,6 +20,7 @@ public class SessionStartServlet extends HttpServlet{
 
          CartBean cart = (CartBean)session.getAttribute("cart");
 
+         // Sessionが開始されたばかりかどうかの判定。Sessionが開始されたばかりならば、cartには何も登録されていない。
          if(cart == null){
             cart = new CartBean();
          }
