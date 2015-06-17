@@ -13,6 +13,9 @@ import bean.CartBean;
 public class SessionStartServlet extends HttpServlet{
    public void doGet(HttpServletRequest req, HttpServletResponse res)
       throws IOException,ServletException{
+         // javax.servlet.http.HttpSessionインターフェイスの実装クラスのインスタンスを取得
+         // すでにsessionがあれば、既存のものが取得されない場合は新しくsessionが開始される。
+         // sessionはHTTPに関連しているので、HttpServletRequestから取得する。
          HttpSession session = req.getSession();
 
          CartBean cart = (CartBean)session.getAttribute("cart");

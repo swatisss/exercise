@@ -13,7 +13,7 @@
 <body>
    <h1>カート情報</h1>
    <table border="1">
-      <tr><th>タイトル</th><th>価格</th></tr>
+      <tr><th>ID</th><th>タイトル</th><th>価格</th></tr>
       <c:forEach var="book" items="${sessionScope.cart.books}">
          <tr>
             <td>${book.id}</td>
