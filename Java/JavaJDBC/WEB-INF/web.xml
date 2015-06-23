@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+   http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+   version="3.0"
+   metadata-complete="true">
+
+    <servlet>
+        <servlet-name>refer</servlet-name>
+        <servlet-class>jdbc90.ReferServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>refer</servlet-name>
+        <url-pattern>/ReferServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>result</servlet-name>
+      <jsp-file>/result.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>result</servlet-name>
+      <url-pattern>/result</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -5,23 +5,23 @@ public class Test{
    public static void main(String[] args) {
       CompositeTag parent = new CompositeTag();
       parent.setName("school");
-      parent.setLevel(0);
 
       CompositeTag childTag1 = new CompositeTag();
       childTag1.setName("course");
-      childTag1.setLevel(2);
 
       CompositeTag childTag2 = new CompositeTag();
       childTag2.setName("student");
-      childTag2.setLevel(3);
 
-      ChildTag childTag3 = new ChildTag();
+      CompositeTag childTag3 = new CompositeTag();
       childTag3.setName("name");
-      childTag3.setLevel(4);
+
+      ChildTag value = new ChildTag();
+      value.setName("ぶるー");
 
       parent.addChild(childTag1);
       childTag1.addChild(childTag2);
       childTag2.addChild(childTag3);
+      childTag3.addChild(value);
 
       Output op = new Output(parent);
       op.show();
@@ -90,6 +90,7 @@ class CompositeTag extends Tag{
    private ArrayList<Tag> childTags = new ArrayList<>();
 
    public void addChild(Tag child){
+      child.setLevel(getLevel()+1);
       childTags.add(child);
    }
 
@@ -109,7 +110,11 @@ class CompositeTag extends Tag{
 
 class ChildTag extends Tag{
    public void write(){
-      System.out.println(getBeginTag());
-      System.out.println(getEndTag());
+      String tab = "";
+
+      for(int i = 1; i < getLevel(); i++){
+         tab += "\t";
+      }
+      System.out.println(tab+getName());
    }
 }
