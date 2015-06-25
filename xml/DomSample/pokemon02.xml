@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="pokemon02.xsl" ?>
+<zukann xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="pokemon.xsd">
+  <pokemon>
+    <no afterNo="2">1</no>
+    <name>フシギダネ</name>
+    <type>くさ</type>
+    <type>どく</type>
+    <height>0.7</height>
+    <weight>6.9</weight>
+    <group>たねポケモン</group>
+    <property>しんりょく</property>
+    <egggroup>かいじゅう</egggroup>
+    <egggroup>しょくぶつ</egggroup>
+    <image>images/fushigidane.jpg</image>
+  </pokemon>
+  
+  <pokemon>
+    <no beforeNo="1" afterNo="3">2</no>
+    <name>フシギソウ</name>
+    <type>くさ</type>
+    <type>どく</type>
+    <height>1.0</height>
+    <weight>13.0</weight>
+    <group>たねポケモン</group>
+    <property>しんりょく</property>
+    <egggroup>かいじゅう</egggroup>
+    <egggroup>しょくぶつ</egggroup>
+    <image>images/fushigisou.jpg</image>
+  </pokemon>
+  
+  <pokemon>
+    <no beforeNo="2">3</no>
+    <name>フシギバナ</name>
+    <type>くさ</type>
+    <type>どく</type>
+    <height>2.0</height>
+    <weight>100.0</weight>
+    <group>たねポケモン</group>
+    <property>しんりょく</property>
+    <egggroup>かいじゅう</egggroup>
+    <egggroup>しょくぶつ</egggroup>
+    <image>images/fushigibana.jpg</image>
+  </pokemon>
+    
+  <pokemon>
+    <no afterNo="5">4</no>
+    <name>ヒトカゲ</name>
+    <type>ほのお</type>
+    <height>0.6</height>
+    <weight>8.5</weight>
+    <group>とかげポケモン</group>
+    <property>もうか</property>
+    <egggroup>かいじゅう</egggroup>
+    <egggroup>ドラゴン</egggroup>
+    <image>images/hitokage.jpg</image>
+  </pokemon>
+      
+  <pokemon>
+    <no beforeNo="4" afterNo="6">5</no>
+    <name>リザード</name>
+    <type>ほのお</type>
+    <height>1.1</height>
+    <weight>19.0</weight>
+    <group>かえんポケモン</group>
+    <property>もうか</property>
+    <egggroup>かいじゅう</egggroup>
+    <egggroup>ドラゴン</egggroup>
+    <image>images/rizado.jpg</image>
+  </pokemon>
+      
+  <pokemon>
+    <no beforeNo="5">6</no>
+    <name>リザードン</name>
+    <type>ほのお</type>
+    <type>ひこう</type>
+    <height>1.7</height>
+    <weight>90.5</weight>
+    <group>かえんポケモン</group>
+    <property>もうか</property>
+    <egggroup>かいじゅう</egggroup>
+    <egggroup>ドラゴン</egggroup>
+    <image>images/rizadon.jpg</image>
+  </pokemon>
+  
+  <pokemon>
+    <no afterNo="8">7</no>
+    <name>ゼニガメ</name>
+    <type>みず</type>
+    <height>0.5</height>
+    <weight>9.0</weight>
+    <group>かめのこポケモン</group>
+    <property>げきりゅう</property>
+    <egggroup>かいじゅう</egggroup>
+    <egggroup>すいちゅう1</egggroup>
+    <image>images/zenigame.jpg</image>
+  </pokemon>
+  
+  <pokemon>
+    <no beforeNo="7" afterNo="9">8</no>
+    <name>カメール</name>
+    <type>みず</type>
+    <height>1.0</height>
+    <weight>22.5</weight>
+    <group>かめポケモン</group>
+    <property>げきりゅう</property>
+    <egggroup>かいじゅう</egggroup>
+    <egggroup>すいちゅう1</egggroup>
+    <image>images/kameru.jpg</image>
+  </pokemon>
+    
+  <pokemon>
+    <no beforeNo="8">9</no>
+    <name>カメックス</name>
+    <type>みず</type>
+    <height>1.6</height>
+    <weight>85.5</weight>
+    <group>こうらポケモン</group>
+    <property>げきりゅう</property>
+    <egggroup>かいじゅう</egggroup>
+    <egggroup>すいちゅう1</egggroup>
+    <image>images/kamekkusu.jpg</image>
+  </pokemon>
+  
+  <pokemon>
+    <no afterNo="11">10</no>
+    <name>キャタピー</name>
+    <type>むし</type>
+    <height>0.3</height>
+    <weight>2.9</weight>
+    <group>いもむしポケモン</group>
+    <property>りんぷん</property>
+    <egggroup>むし</egggroup>
+    <image>images/cyatapi.jpg</image>
+  </pokemon>
+
+</zukann>

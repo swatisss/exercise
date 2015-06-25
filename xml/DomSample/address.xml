@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="address12.xsl"?>
+<addressList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="address.xsd">
+  <person>
+    <code>1</code>
+    <name group="S">田中太郎</name>
+    <kana>たなかたろう</kana>
+    <gender>男</gender>
+    <prefCode>13</prefCode>
+    <address>新宿区○○町</address>
+    <phone>03-0000-0000</phone>
+    <email>abc@bbc.com</email>
+    <birth>1995-04-29</birth>
+    <memo></memo>
+  </person>
+  <person>
+    <code>2</code>
+    <name group="B">山田花子</name>
+    <kana>やまだはなこ</kana>
+    <gender>女</gender>
+    <prefCode>27</prefCode>
+    <address>大阪市△△町</address>
+    <phone>078-000-0000</phone>
+    <email>ooo@ccb.com</email>
+    <birth>1993-07-12</birth>
+    <memo>好きな物：<favorite>キラキラしたもの</favorite></memo>
+  </person>
+  <person>
+    <code>4</code>
+    <name group="F">安藤さくら</name>
+    <kana>あんどうさくら</kana>
+    <gender>女</gender>
+    <prefCode>23</prefCode>
+    <address>愛知県名古屋市○○町</address>
+    <phone>052-111-1111</phone>
+    <email>aaa@abab.com</email>
+    <birth>1995-09-06</birth>
+    <memo>趣味：<hobby>川の絵を描く</hobby></memo>
+  </person>
+  <person>
+    <code>5</code>
+    <name group="B">高橋一郎</name>
+    <kana>たかはしいちろう</kana>
+    <gender>男</gender>
+    <prefCode>12</prefCode>
+    <address>千葉県船橋市△△町</address>
+    <phone>047-987-6543</phone>
+    <email>taka@fns.com</email>
+    <birth>1990-01-20</birth>
+    <memo>好きな物：<favorite>車、バイク</favorite></memo>
+  </person>
+  <person>
+    <code>3</code>
+    <name group="E">佐藤恵子</name>
+    <kana>さとうけいこ</kana>
+    <gender>女</gender>
+    <prefCode>12</prefCode>
+    <address>千葉県柏市××町</address>
+    <phone>04-1122-3344</phone>
+    <email>kei@ksw.com</email>
+    <birth>1995-11-12</birth>
+    <memo>趣味：<hobby>吟遊詩人</hobby></memo>
+  </person>
+</addressList>
