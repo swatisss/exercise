@@ -24,4 +24,8 @@ public class OracleConnector{
    public Connection getConnection(){
       return conn;
    }
+
+   public static void closeConnection(Connection cn) throws SQLException{
+      cn.close();
+   }
 }

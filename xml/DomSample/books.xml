@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="./books22.xsl" ?>
+<product xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="books.xsd">
+  <book>
+    <code>001</code>
+    <title>Java入門</title>
+    <author>山田 太郎</author>
+    <price>
+      <tax-excluded>2800</tax-excluded>
+    </price>
+    <publish>情報処理科出版</publish>
+    <url>http://ttc.com/program./java/</url>
+    <img>java1.png</img>
+  </book>
+  <book>
+    <code>003</code>
+    <title>C言語応用</title>
+    <author>安藤 一郎</author>
+    <price>
+      <tax-included>3500</tax-included>
+    </price>
+    <publish>TTC BOOKS</publish>
+    <url>http://ttc.com/program./c/</url>
+    <img>C2.png</img>
+  </book>
+  <book>
+    <code>004</code>
+    <title>Java応用</title>
+    <author>鈴木 明子</author>
+    <price>
+      <tax-excluded>3400</tax-excluded>
+    </price>
+    <publish>情報処理科出版</publish>
+    <url>http://ttc.com/program./java/</url>
+    <img>java2.png</img>
+  </book>
+  <book>
+    <code>002</code>
+    <title>C言語入門</title>
+    <author>佐藤 花子</author>
+    <price>
+      <tax-included>3200</tax-included>
+    </price>
+    <publish>TTC BOOKS</publish>
+    <url>http://ttc.com/program./c/</url>
+    <img>C1.png</img>
+  </book>
+ </product>
