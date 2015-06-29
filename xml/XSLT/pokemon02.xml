@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="pokemon02.xsl" ?>
+<?xml-stylesheet type="text/xsl" href="pokemon.xsl" ?>
 <zukann xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="pokemon.xsd">
   <pokemon>
     <no afterNo="2">1</no>
@@ -14,7 +14,7 @@
     <egggroup>しょくぶつ</egggroup>
     <image>images/fushigidane.jpg</image>
   </pokemon>
-  
+
   <pokemon>
     <no beforeNo="1" afterNo="3">2</no>
     <name>フシギソウ</name>
@@ -28,7 +28,7 @@
     <egggroup>しょくぶつ</egggroup>
     <image>images/fushigisou.jpg</image>
   </pokemon>
-  
+
   <pokemon>
     <no beforeNo="2">3</no>
     <name>フシギバナ</name>
@@ -42,7 +42,7 @@
     <egggroup>しょくぶつ</egggroup>
     <image>images/fushigibana.jpg</image>
   </pokemon>
-    
+
   <pokemon>
     <no afterNo="5">4</no>
     <name>ヒトカゲ</name>
@@ -55,7 +55,7 @@
     <egggroup>ドラゴン</egggroup>
     <image>images/hitokage.jpg</image>
   </pokemon>
-      
+
   <pokemon>
     <no beforeNo="4" afterNo="6">5</no>
     <name>リザード</name>
@@ -68,7 +68,7 @@
     <egggroup>ドラゴン</egggroup>
     <image>images/rizado.jpg</image>
   </pokemon>
-      
+
   <pokemon>
     <no beforeNo="5">6</no>
     <name>リザードン</name>
@@ -82,7 +82,7 @@
     <egggroup>ドラゴン</egggroup>
     <image>images/rizadon.jpg</image>
   </pokemon>
-  
+
   <pokemon>
     <no afterNo="8">7</no>
     <name>ゼニガメ</name>
@@ -95,7 +95,7 @@
     <egggroup>すいちゅう1</egggroup>
     <image>images/zenigame.jpg</image>
   </pokemon>
-  
+
   <pokemon>
     <no beforeNo="7" afterNo="9">8</no>
     <name>カメール</name>
@@ -108,7 +108,7 @@
     <egggroup>すいちゅう1</egggroup>
     <image>images/kameru.jpg</image>
   </pokemon>
-    
+
   <pokemon>
     <no beforeNo="8">9</no>
     <name>カメックス</name>
@@ -121,7 +121,7 @@
     <egggroup>すいちゅう1</egggroup>
     <image>images/kamekkusu.jpg</image>
   </pokemon>
-  
+
   <pokemon>
     <no afterNo="11">10</no>
     <name>キャタピー</name>
