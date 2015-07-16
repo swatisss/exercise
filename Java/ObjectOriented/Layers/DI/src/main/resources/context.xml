@@ -3,9 +3,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+  <!-- idは識別用のBeanの論理名, classはクラスの完全限定名 -->
   <bean id="accessor" class="tera.FileAccessor" />
 
   <bean id="calc" class="tera.IntegerCalculator">
+     <!-- propertyはsetterで使われるプロパティ名を定義、ref属性には注入したいクラスのBeanのid名を記述 -->
      <property name="accessor" ref="accessor" />
   </bean>
 
