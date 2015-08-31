@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
@@ -6,66 +6,44 @@
    version="3.0"
    metadata-complete="true">
 
-    <servlet>
-        <servlet-name>inputuser</servlet-name>
-        <servlet-class>UserRegisterServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>inputuser</servlet-name>
-        <url-pattern>/register</url-pattern>
-    </servlet-mapping>
+   <context-param>
+     <param-name>param3</param-name>
+     <param-value>WEBプログラミング科</param-value>
+   </context-param>
 
-    <servlet>
-        <servlet-name>MailTest</servlet-name>
-        <servlet-class>MailTest</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MailTest</servlet-name>
-        <url-pattern>/mailtest</url-pattern>
-    </servlet-mapping>
+   <servlet>
+     <servlet-name>elobject</servlet-name>
+     <jsp-file>/elobject.jsp</jsp-file>
+   </servlet>
 
-    <servlet>
-        <servlet-name>input</servlet-name>
-        <jsp-file>/UserRegister.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>input</servlet-name>
-        <url-pattern>/user</url-pattern>
-    </servlet-mapping>
+   <servlet-mapping>
+     <servlet-name>elobject</servlet-name>
+     <url-pattern>/elobject</url-pattern>
+   </servlet-mapping>
 
-    <servlet>
-        <servlet-name>confirm</servlet-name>
-        <jsp-file>/UserRegisterConfirm.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>confirm</servlet-name>
-        <url-pattern>/confirm</url-pattern>
-    </servlet-mapping>
+    	<servlet>
+    		<servlet-name>FrontServlet</servlet-name>
+    		<servlet-class>FrontServlet</servlet-class>
+    	</servlet>
 
-    <servlet>
-      <servlet-name>twoservlet</servlet-name>
-      <servlet-class>TwoServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-      <servlet-name>twoservlet</servlet-name>
-      <url-pattern>/servlet</url-pattern>
-    </servlet-mapping>
+    	<servlet-mapping>
+    		<servlet-name>FrontServlet</servlet-name>
+    		<url-pattern>/front</url-pattern>
+    	</servlet-mapping>
 
-    <servlet>
-      <servlet-name>index</servlet-name>
-      <jsp-file>/index.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-      <servlet-name>index</servlet-name>
-      <url-pattern>/index</url-pattern>
-    </servlet-mapping>
+    	<servlet>
+    		<servlet-name>jspobject</servlet-name>
+    		<jsp-file>/jspobject.jsp</jsp-file>
+    		<init-param>
+    			<param-name>param1</param-name>
+    			<param-value>terahouse</param-value>
+    		</init-param>
+    	</servlet>
 
-    <servlet>
-      <servlet-name>result</servlet-name>
-      <jsp-file>/result.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-      <servlet-name>result</servlet-name>
-      <url-pattern>/result</url-pattern>
-    </servlet-mapping>
+    	<servlet-mapping>
+    		<servlet-name>jspobject</servlet-name>
+    		<url-pattern>/jspobject</url-pattern>
+    	</servlet-mapping>
+
+
 </web-app>

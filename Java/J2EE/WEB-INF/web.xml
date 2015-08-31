@@ -6,13 +6,43 @@
    version="3.0"
    metadata-complete="true">
 
+   <!-- フィルター -->
+   <filter>
+     <filter-name>authenticatefilter</filter-name>
+     <filter-class>servlet.AuthenticateFilter</filter-class>
+   </filter>
+   <filter-mapping>
+     <filter-name>authenticatefilter</filter-name>
+     <url-pattern>/productinput</url-pattern>
+     <dispatcher>REQUEST</dispatcher>
+     <dispatcher>FORWARD</dispatcher>
+   </filter-mapping>
+
+   <servlet>
+       <servlet-name>orderlogin</servlet-name>
+       <jsp-file>/orderlogin.jsp</jsp-file>
+   </servlet>
+   <servlet-mapping>
+       <servlet-name>orderlogin</servlet-name>
+       <url-pattern>/orderlogin</url-pattern>
+   </servlet-mapping>
+
+   <servlet>
+       <servlet-name>productinput</servlet-name>
+       <jsp-file>/productinput.jsp</jsp-file>
+   </servlet>
+   <servlet-mapping>
+       <servlet-name>productinput</servlet-name>
+       <url-pattern>/productinput</url-pattern>
+   </servlet-mapping>
+
     <servlet>
-        <servlet-name>sessionstart</servlet-name>
-        <servlet-class>servlets.SessionStartServlet</servlet-class>
+        <servlet-name>authenticate</servlet-name>
+        <servlet-class>servlet.AuthenticateServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>sessionstart</servlet-name>
-        <url-pattern>/sessionstart</url-pattern>
+        <servlet-name>authenticate</servlet-name>
+        <url-pattern>/authenticate</url-pattern>
     </servlet-mapping>
 
     <servlet>

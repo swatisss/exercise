@@ -14,6 +14,9 @@
 
    <xsl:template match="book">
       <ul>
+         <li><xsl:value-of select=""/></li>
+         <li><xsl:value-of select="text()"/></li>
+         <li><xsl:value-of select="text()"/></li>
          <li><xsl:value-of select="text()"/></li>
       </ul>
    </xsl:template>
