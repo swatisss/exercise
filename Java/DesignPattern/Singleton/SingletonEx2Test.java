@@ -4,8 +4,8 @@ public class SingletonEx2Test{
     SingletonEx2 e2 = SingletonEx2.getInstance("obj2");
     SingletonEx2 e3 = SingletonEx2.getInstance("obj3");
 
-    System.out.println(e1.getClass());
-    System.out.println(e2.getClass());
-    System.out.println(e3.getClass());
+    System.out.println(e1.getName());
+    System.out.println(e2.getName());
+    System.out.println(e3.getName());
   }
 }
