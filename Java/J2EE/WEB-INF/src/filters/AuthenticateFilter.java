@@ -1,4 +1,4 @@
-package filters;
+package servlet;
 
 import java.io.IOException;
 
@@ -23,11 +23,6 @@ public class AuthenticateFilter implements Filter{
      String flag = (String)session.getAttribute("token");
 
      if(flag == null){
-        HttpServletRequest hreq = (HttpServletRequest)req;
-        String servletPath = hreq.getServletPath();
-
-        hreq.setAttribute("target", servletPath);
-        
        RequestDispatcher disp = req.getRequestDispatcher("/orderlogin");
        disp.forward(req, res);
      }else{

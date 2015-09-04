@@ -8,15 +8,51 @@
 
    <!-- フィルター -->
    <filter>
+     <filter-name>logincheckfilter</filter-name>
+     <filter-class>filters.LoginCheckFilter</filter-class>
+     <init-param>
+        <param-name>username</param-name>
+        <param-value>ica</param-value>
+     </init-param>
+     <init-param>
+       <param-name>password</param-name>
+       <param-value>tera</param-value>
+     </init-param>
+   </filter>
+   <filter-mapping>
+     <filter-name>logincheckfilter</filter-name>
+     <url-pattern>/productinput</url-pattern>
+     <dispatcher>REQUEST</dispatcher>
+   </filter-mapping>
+   <filter-mapping>
+     <filter-name>logincheckfilter</filter-name>
+     <url-pattern>/productorder</url-pattern>
+     <dispatcher>REQUEST</dispatcher>
+   </filter-mapping>
+
+   <filter>
      <filter-name>authenticatefilter</filter-name>
-     <filter-class>servlet.AuthenticateFilter</filter-class>
+     <filter-class>filters.AuthenticateFilter</filter-class>
    </filter>
    <filter-mapping>
      <filter-name>authenticatefilter</filter-name>
      <url-pattern>/productinput</url-pattern>
      <dispatcher>REQUEST</dispatcher>
-     <dispatcher>FORWARD</dispatcher>
    </filter-mapping>
+   <filter-mapping>
+     <filter-name>authenticatefilter</filter-name>
+     <url-pattern>/productorder</url-pattern>
+     <dispatcher>REQUEST</dispatcher>
+   </filter-mapping>
+
+   <servlet>
+       <servlet-name>productorder</servlet-name>
+       <jsp-file>/productorder.jsp</jsp-file>
+   </servlet>
+   <servlet-mapping>
+       <servlet-name>productorder</servlet-name>
+       <url-pattern>/productorder</url-pattern>
+   </servlet-mapping>
 
    <servlet>
        <servlet-name>orderlogin</servlet-name>
@@ -45,7 +81,7 @@
         <url-pattern>/authenticate</url-pattern>
     </servlet-mapping>
 
-    <servlet>
+    <!-- <servlet>
         <servlet-name>sessionend</servlet-name>
         <servlet-class>servlets.SessionEndServlet</servlet-class>
     </servlet>
@@ -70,6 +106,6 @@
     <servlet-mapping>
         <servlet-name>confirm</servlet-name>
         <url-pattern>/confirm</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping> -->
 
 </web-app>

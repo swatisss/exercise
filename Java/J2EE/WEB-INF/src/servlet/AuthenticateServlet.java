@@ -13,15 +13,7 @@ public class AuthenticateServlet extends HttpServlet{
   protected void doPost(HttpServletRequest req, HttpServletResponse res)
     throws IOException, ServletException{
       req.setCharacterEncoding("utf-8");
-
-      String name = req.getParameter("name");
-      String pass = req.getParameter("pass");
-
-      if(name.equals("ica") && pass.equals("tera")){
-        HttpSession session = req.getSession();
-        session.setAttribute("token", "OK");
-      }
-
+      
       RequestDispatcher disp = req.getRequestDispatcher("/productinput");
       disp.forward(req, res);
     }
