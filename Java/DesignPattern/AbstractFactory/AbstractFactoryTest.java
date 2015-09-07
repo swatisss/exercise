@@ -1,7 +1,9 @@
 
 public class AbstractFactoryTest{
    public static void main(String[] args) {
-      //setup
-      
+      Client cl = new Client();
+
+      cl.execute("test");
+      cl.execute("prod");
    }
 }
