@@ -1,12 +1,12 @@
-(function(name){
-  console.log(name+"　やっほ");
-})("ぶるー")
-
-function check(name){
-  console.log(isNaN(name));
-  console.log(encodeURIComponent(name));
-  console.log(decodeURIComponent(name));
+window.onload = function(){
+   document.getElementById('button1').onclick = function(){
+      showImage(document.getElementById('btn').value);
+   };
 }
-var func = check;
-func("加賀さん");
-check("ぶるー");
+
+function showImage(num){
+   var htmlstr = "";
+
+   htmlstr += "<img src='/Users/koyama/Pictures/img"+num+".jpg'>";
+   document.getElementById("imageArea").innerHTML = htmlstr;
+}

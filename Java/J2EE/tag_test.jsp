@@ -7,6 +7,7 @@
   <title>カスタムタグのテストです</title>
 </head>
 <body>
-   <h1><s:hello/></h1>
+      <h1><s:hello6 min="${param.min}" max="${param.max}">${pageContext.request.requestURI}</s:hello6></h1>
+   <p>ページの残り</p>
 </body>
 </html>

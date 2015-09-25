@@ -8,9 +8,23 @@
    <tlib-version>1.1</tlib-version>
 
    <tag>
-      <name>hello</name>
-      <tag-class>taglibs.HelloTag</tag-class>
-      <body-content>empty</body-content>
+      <name>hello6</name>
+      <tag-class>taglibs.SimpleHelloTag1</tag-class>
+		<!-- タグボディで式言語を利用する -->
+      <body-content>scriptless</body-content>
+		<attribute>
+			<name>min</name>
+			<required></required>
+			<!-- 属性での式言語利用の設定 -->
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Integer</type>
+		</attribute>
+		<attribute>
+			<name>max</name>
+			<type>java.lang.String</type>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
    </tag>
 
 </taglib>
