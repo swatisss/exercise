@@ -10,15 +10,15 @@ import javax.servlet.RequestDispatcher;
 public class FrontServlet extends HttpServlet{
    public void doGet(HttpServletRequest req, HttpServletResponse res)
       throws IOException, ServletException{
-         System.out.println("てすと");
          doPost(req, res);
    }
 
   public void doPost(HttpServletRequest req, HttpServletResponse res)
     throws IOException, ServletException{
       String pathInfo = req.getPathInfo();
-      System.out.println(pathInfo);
-      String url = "/WEB-INF/jsp"+pathInfo+".jsp";
+      String path2 = pathInfo.replace("/","");
+      System.out.println("replaceしてみた　"+path2);
+      String url = "WEB-INF/jsp/order"+path2+".jsp";
 
       System.out.println(url);
 
