@@ -1,12 +1,23 @@
-window.onload = function(){
-   document.getElementById('button1').onclick = function(){
-      showImage(document.getElementById('btn').value);
-   };
-}
+$(function(){
+   var tablerow = $("tr");
+   tablerow.filter(":first").text("あわわ");
+   // alert(tablerow.filter(":first").text());
 
-function showImage(num){
-   var htmlstr = "";
+   $('#msg2').attr("value","おやすみ");
+   console.log($('tr~').html());
 
-   htmlstr += "<img src='/Users/koyama/Pictures/img"+num+".jpg'>";
-   document.getElementById("imageArea").innerHTML = htmlstr;
-}
+   // $('img').attr('src','C:\\Users\\koyama\\Pictures\\img4.jpg');
+
+   tablerow.filter(":first").addClass('highlight');
+   // tablerow.filter(":first").removeClass("large");
+   $('#fruits')
+      .append("<li>パイナップル</li>")
+      .prepend("<li>なし</li>")
+      .before("<p>おいしいよ</p>")
+      .after("<p>購入はこちら!</p>")
+      .empty();
+
+   $('#cli').on('click',function(){
+      alert("やあ");
+   });
+});

@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
+import controller.*;
+import context.*;
 
 public class FrontServlet extends HttpServlet{
    public void doGet(HttpServletRequest req, HttpServletResponse res)
@@ -15,14 +17,21 @@ public class FrontServlet extends HttpServlet{
 
   public void doPost(HttpServletRequest req, HttpServletResponse res)
     throws IOException, ServletException{
-      String pathInfo = req.getPathInfo();
-      String path2 = pathInfo.replace("/","");
-      System.out.println("replaceしてみた　"+path2);
-      String url = "WEB-INF/jsp/order"+path2+".jsp";
+      req.setCharacterEncoding("utf-8");
 
-      System.out.println(url);
+      // ApplicationControllerの実装クラスのインスタンスを取得
+      ApplicationController app = new WebApplicationController();
 
-      RequestDispatcher disp = req.getRequestDispatcher(url);
-      disp.forward(req, res);
+      // ファクトリーメソッドを呼びだして、具象クラスのインスタンスを取得
+      RequestContext reqc = app.getRequestContext(req);
+
+      // ファクトリーメソッドを呼び出し、RequestContextを渡して、ResponseContextを取得
+      ResponseContext resc = app.handleRequest(reqc);
+
+      // ResponseContextにHttpServletResponseインターフェイスを実装するクラスのインスタンスを格納
+      resc.setResponse(res);
+
+      // VIEWの選択と転送処理を行う
+      app.handleResponse(reqc,resc);
     }
 }

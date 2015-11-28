@@ -1,4 +1,4 @@
-; Updated by TeraTerm Project (Jan 23 2015)
+; Updated by TeraTerm Project (Aug 29 2015)
 ; Last translated (German language) by Frederik Schwarzer (May 17 2010)
 
 [Tera Term]
@@ -60,6 +60,7 @@ MENU_SETUP_GENERAL=&Grundeinstellungen
 MENU_SETUP_ADDITION=&Erweiterte Einstellungen
 MENU_SETUP_SAVE=&Setup sichern
 MENU_SETUP_RESTORE=&Setup laden
+MENU_OPEN_SETUP=Setup d&irectory...
 MENU_SETUP_LOADKEYMAP=&Keyboard-Layout einstellen
 
 MENU_CONTROL=Ste&uerung
@@ -263,6 +264,14 @@ DLG_FILETRANS_ELAPSED=Elapsed time:
 DLG_FILETRANS_START=&Start
 DLG_FILETRANS_PAUSE=Pau&se
 DLG_FILETRANS_CLOSE=Schließen
+
+DLG_SETUPDIR_CAPTION=Tera Term: Setup directory
+DLG_SETUPDIR_INIFILE=Tera Term Configuration File
+DLG_SETUPDIR_KEYBOARDFILE=Keyboard Configuration File
+DLG_SETUPDIR_CYGTERMFILE=CygTerm Configuration File
+DLG_SETUPDIR_KNOWNHOSTSFILE=Known_hosts File
+DLG_SETUPDIR_NOFILE_ERROR=File does not exist.(%d)
+DLG_SETUPDIR_OPENFILE_ERROR=Cannot open file.(%d)
 
 ; commonlib.c
 MSG_WINSOCK_ERROR=Kann Winsock nicht verwenden
@@ -481,6 +490,7 @@ MSG_OPENHELP_ERROR=Hilfedatei kann nicht geöffnet werden (%s).
 MSG_INI_ERROR=Tera Term: Error
 MSG_INI_WRITE_ERROR=Cannot write ini file.
 
+
 [TTSSH]
 ; font
 DLG_TAHOMA_FONT=Tahoma,8,0
@@ -696,6 +706,10 @@ DLG_SSHSETUP_FORWARDAGENT=Enable &agent forwarding
 DLG_SSHSETUP_FORWARDAGENTCONFIRM=C&onfirm agent forwarding
 DLG_SSHSETUP_VERIFYHOSTKEYDNS=&Verify hostkey fingerprint by DNS
 DLG_SSHSETUP_NOTICE=Die Einstellungen werden beim Start der nächsten Sitzung aktiv.
+DLG_SSHSETUP_HOSTKEY_ROTATION=Hostkey rotatio&n
+DLG_SSHSETUP_HOSTKEY_ROTATION_NO=No
+DLG_SSHSETUP_HOSTKEY_ROTATION_YES=Yes
+DLG_SSHSETUP_HOSTKEY_ROTATION_ASK=Ask
 
 FILEDLG_OPEN_KNOWNHOSTS_RW_TITLE=Choose a read/write known-hosts file
 FILEDLG_OPEN_KNOWNHOSTS_RO_TITLE=Choose a read-only known-hosts file to add
@@ -710,6 +724,18 @@ DLG_UNKNOWNHOST_WARNING=Es gibt für diesen Server ("############################
 DLG_UNKNOWNHOST_WARNING2=Wenn Sie auf 'Continue' klicken, wird der Server in die Liste aufgenommen und die Fehlermeldung erscheint nicht mehr.
 DLG_UNKNOWNHOST_FINGERPRINT=Der Fingerabdruck des Schlüssels:
 DLG_UNKNOWNHOST_ADD=Den Server zur "known hosts"-Liste hinzufügen.
+
+DLG_HOSTKEY_SSHFP_NOTFOUND=No host key fingerprint found in DNS.
+DLG_HOSTKEY_SSHFP_MATCH=Matching host key fingerprint found in DNS.
+DLG_HOSTKEY_SSHFP_MISMATCH=Mismatching host key fingerprint found in DNS.
+DLG_HOSTKEY_SSHFP_DIFFTYPE=Mismatching host key type found in DNS.
+DLG_HOSTKEY_DNSSEC_NG=Found insecure fingerprint in DNS.
+DLG_HOSTKEY_DNSSEC_OK=Found secure fingerprint in DNS.
+
+DLG_HOSTKEY_ROTATION_TITLE=Hostkey rotation
+DLG_HOSTKEY_ROTATION_WARNING=You received the list of host keys from remote server `%s'.\nYou can choose to add %u new key(s) and remove %u obsolete key(s) from this machine to the known hosts list.\nAre you sure that you want to update known hosts file?
+DLG_HOSTKEY_ROTATION_ADD=%u new key(s):
+DLG_HOSTKEY_ROTATION_REMOVE=%u obsolete key(s):
 
 ; crypt.c
 MSG_ENCRYPT_ERROR1=%s encrypt error(1): bytes %d (%d)
@@ -732,8 +758,8 @@ MSG_FWD_MACHINEDOWN_ERROR=The machine could not be contacted (possibly the machi
 MSG_FWD_ADDRNOTFOUTD_ERROR=No address was found for the machine
 MSG_FWD_CONNECT_ERROR=The forwarding connection could not be established
 MSG_FWD_CHANNEL_ERROR=Communications error %s forwarded local %s.\n%s (code %d).\nThe forwarded connection will be closed.
-MSG_FWD_CHANNEL_OPEN_X_ERROR=The server attempted to forward a connection through this machine.\nIt requested a connection to the X server on %s (anzeige %d:%d).\n%s.\nThe forwarded connection will be closed.
-MSG_FWD_CHANNEL_OPEN_ERROR=The server attempted to forward a connection through this machine.\nIt requested a connection to %s (port %s).\n%s.\nThe forwarded connection will be closed.
+MSG_FWD_CHANNEL_OPEN_X_ERROR=The server attempted to forward a connection through this machine.\nIt requested a connection to the X server on %s (anzeige %d:%d).\n%s(code %d).\nThe forwarded connection will be closed.
+MSG_FWD_CHANNEL_OPEN_ERROR=The server attempted to forward a connection through this machine.\nIt requested a connection to %s (port %s).\n%s(code %d).\nThe forwarded connection will be closed.
 DLG_FWDMON_TITLE=TTSSH Port Forwarding Monitor
 MSG_FWD_HOSTILE_ATTACK_ERROR=Host with IP number %s tried to connect to forwarded local port %d.\nThis could be some kind of hostile attack.
 MSG_FWD_SOCKET_ERROR=Some socket(s) required for port forwarding could not be initialized.\nSome port forwarding services may not be available.\n(errno %d)
@@ -796,6 +822,11 @@ MSG_SSH_SERVER_NO_AUTH_METHOD_ERROR=The server doesn't have valid authentication
 MSG_SSH_SERVER_UNSUPPORT_AUTH_METHOD_ERROR=\nAuthentication method is not supported by server.
 MSG_SSH_CHANNEL_OPEN_ERROR=SSH2_MSG_CHANNEL_OPEN_FAILURE was received.\nchannel [%d]: reason: %s(%d) message: %s
 MSG_SSH_NO_FREE_CHANNEL=Could not open new channel. TTSSH is already opening too many channels.
+MSG_SSH_GEX_SIZE_TITLE=TTSSH: Confirm GEX group size
+MSG_SSH_GEX_SIZE_CANCEL=New connection is cancelled.
+MSG_SSH_GEX_SIZE_OUTOFRANGE=Received group size is out of range: %d
+MSG_SSH_GEX_SIZE_SMALLER=Received group size is smaller than the requested minimal size.\nrequested: %d, received: %d\nAre you sure that you want to accept received group?
+MSG_SSH_GEX_SIZE_LARGER=Received group size is larger than the requested maximal size.\nrequested: %d, received: %d\nAre you sure that you want to accept received group?
 
 ; ttxssh.c
 MSG_UNKNOWN_OPTION_ERROR=Unbekannte Befehlszeilen-Option: %s
@@ -822,6 +853,8 @@ BTN_CANCEL=Abbrechen
 BTN_CLOSE=Schließen
 BTN_DISCONNECT=&Trennen
 BTN_CONTINUE=&Fortsetzen
+BTN_YES=&Yes
+BTN_NO=&No
 
 
 [TTProxy]

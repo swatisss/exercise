@@ -1,4 +1,4 @@
-; Updated by TeraTerm Project (Jan 23 2015)
+; Updated by TeraTerm Project (Aug 29 2015)
 
 [Tera Term]
 DLG_SYSTEM_FONT=ＭＳ Ｐゴシック,12,128
@@ -59,6 +59,7 @@ MENU_SETUP_GENERAL=全般(&G)...
 MENU_SETUP_ADDITION=その他の設定(&D)...
 MENU_SETUP_SAVE=設定の保存(&S)...
 MENU_SETUP_RESTORE=設定の読み込み(&R)...
+MENU_OPEN_SETUP=設定フォルダ(&I)..
 MENU_SETUP_LOADKEYMAP=キーマップ読み込み(&L)...
 
 MENU_CONTROL=コントロール(&O)
@@ -235,6 +236,7 @@ DLG_TAB_LOG_ROTATE=ログのローテート(&L)
 DLG_TAB_LOG_ROTATE_SIZE_TEXT=サイズ(&i)
 IDC_ROTATE_STEP_TEXT=世代(&R)
 
+
 DLG_TAB_CYGWIN_PATH=Cygwinインストール先のパス(&P)
 
 DLG_COMMENT_TITLE=ログにコメントを付加
@@ -261,6 +263,14 @@ DLG_FILETRANS_ELAPSED=経過時間:
 DLG_FILETRANS_START=再開(&S)
 DLG_FILETRANS_PAUSE=一時停止(&S)
 DLG_FILETRANS_CLOSE=閉じる
+
+DLG_SETUPDIR_CAPTION=Tera Term: 設定フォルダ
+DLG_SETUPDIR_INIFILE=Tera Term設定ファイル
+DLG_SETUPDIR_KEYBOARDFILE=キーボード設定ファイル
+DLG_SETUPDIR_CYGTERMFILE=CygTerm設定ファイル
+DLG_SETUPDIR_KNOWNHOSTSFILE=Known_hostsファイル
+DLG_SETUPDIR_NOFILE_ERROR=ファイルが存在しません(%d)
+DLG_SETUPDIR_OPENFILE_ERROR=ファイルが開けません(%d)
 
 ; commonlib.c
 MSG_WINSOCK_ERROR=Winsock が使えません
@@ -697,6 +707,10 @@ DLG_SSHSETUP_FORWARDAGENT=エージェント転送を有効にする(&A)
 DLG_SSHSETUP_FORWARDAGENTCONFIRM=エージェント転送を確認する(&O)
 DLG_SSHSETUP_VERIFYHOSTKEYDNS=ホストキーの鍵指紋をDNSで確認する(&V)
 DLG_SSHSETUP_NOTICE=いずれの変更も次回のセッション以降有効になります.
+DLG_SSHSETUP_HOSTKEY_ROTATION=ホスト公開鍵の自動更新(&N)
+DLG_SSHSETUP_HOSTKEY_ROTATION_NO=無効
+DLG_SSHSETUP_HOSTKEY_ROTATION_YES=有効
+DLG_SSHSETUP_HOSTKEY_ROTATION_ASK=確認する
 
 FILEDLG_OPEN_KNOWNHOSTS_RW_TITLE=読み書き用knownhostsファイルを選択してください
 FILEDLG_OPEN_KNOWNHOSTS_RO_TITLE=追加する読み取り専用knownhostsファイルを選択してください
@@ -719,6 +733,11 @@ DLG_HOSTKEY_SSHFP_DIFFTYPE=DNSで鍵指紋情報が見つかりましたが、ホスト鍵と鍵の種類
 DLG_HOSTKEY_DNSSEC_NG=DNSの鍵指紋情報はDNSSECで認証されて*いません*。
 DLG_HOSTKEY_DNSSEC_OK=DNSの鍵指紋情報はDNSSECで認証されています。
 
+DLG_HOSTKEY_ROTATION_TITLE=サーバホスト鍵の更新
+DLG_HOSTKEY_ROTATION_WARNING=接続先のサーバ`%s'からホスト鍵一覧を受信しました.\n更新すると, known hostsリストに%u個の新しいホスト鍵を追加し、%u個の廃止されたホスト鍵を削除します.\nknown hostsリストを更新しますか?
+DLG_HOSTKEY_ROTATION_ADD=%u個の新しいホスト鍵:
+DLG_HOSTKEY_ROTATION_REMOVE=%u個の廃止されたホスト鍵:
+
 ; crypt.c
 MSG_ENCRYPT_ERROR1=%s暗号化エラー(1): bytes %d (%d)
 MSG_ENCRYPT_ERROR2=%s暗号化エラー(2)
@@ -740,8 +759,8 @@ MSG_FWD_MACHINEDOWN_ERROR=転送先マシンに接続できません (おそらくマシンがダウンし
 MSG_FWD_ADDRNOTFOUTD_ERROR=マシンにアドレスがありません
 MSG_FWD_CONNECT_ERROR=転送接続を確立できませんでした
 MSG_FWD_CHANNEL_ERROR=通信エラー %s forwarded local %s.\n%s (コード %d).\n転送接続を終了します.
-MSG_FWD_CHANNEL_OPEN_X_ERROR=サーバはこのマシンに転送を試みました.\n%s 上のXサーバへの接続を要求しました (ディスプレイ %d:%d). \n%s.\n転送接続を終了します.
-MSG_FWD_CHANNEL_OPEN_ERROR=サーバはこのマシンに転送を試みました.\n%s への接続を要求しました (ポート %s).\n%s.\n転送接続を終了します.
+MSG_FWD_CHANNEL_OPEN_X_ERROR=サーバはこのマシンに転送を試みました.\n%s 上のXサーバへの接続を要求しました (ディスプレイ %d:%d). \n%s(code %d).\n転送接続を終了します.
+MSG_FWD_CHANNEL_OPEN_ERROR=サーバはこのマシンに転送を試みました.\n%s への接続を要求しました (ポート %s).\n%s(code %d).\n転送接続を終了します.
 DLG_FWDMON_TITLE=TTSSH ポート転送モニタ
 MSG_FWD_HOSTILE_ATTACK_ERROR=IP 番号 %s のホストが, ローカルポート %d に転送接続を試みました.\n悪意のある攻撃の場合があります.
 MSG_FWD_SOCKET_ERROR=ポート転送に必要ないくつかのソケットの初期化に失敗しました.\nいくつかのポート転送サービスは利用できません.\n(エラー番号 %d)
@@ -804,6 +823,11 @@ MSG_SSH_SERVER_NO_AUTH_METHOD_ERROR=サーバに有効な認証方式がありません.
 MSG_SSH_SERVER_UNSUPPORT_AUTH_METHOD_ERROR=\nサーバでサポートされていない認証方法です.
 MSG_SSH_CHANNEL_OPEN_ERROR=SSH2_MSG_CHANNEL_OPEN_FAILURE を受信しました. \nチャネル [%d]: 理由: %s(%d) メッセージ: %s
 MSG_SSH_NO_FREE_CHANNEL=新しいチャネルを開けません. チャネルがすべて使用中です.
+MSG_SSH_GEX_SIZE_TITLE=TTSSH: GEX グループサイズを確認してください
+MSG_SSH_GEX_SIZE_CANCEL=接続はキャンセルされました.
+MSG_SSH_GEX_SIZE_OUTOFRANGE=受信したグループサイズが範囲外です: %d
+MSG_SSH_GEX_SIZE_SMALLER=受信したグループサイズが要求した最小サイズより小さいです. \n要求したサイズ: %d, 受信したサイズ: %d\n受信したグループを受け入れますか？
+MSG_SSH_GEX_SIZE_LARGER=受信したグループサイズが要求した最大サイズより大きいです. \n要求したサイズ: %d, 受信したサイズ: %d\n受信したグループを受け入れますか？
 
 ; ttxssh.c
 MSG_UNKNOWN_OPTION_ERROR=無効なコマンドラインオプション: %s
@@ -830,6 +854,8 @@ BTN_CANCEL=キャンセル
 BTN_CLOSE=閉じる(&C)
 BTN_DISCONNECT=接続断(&D)
 BTN_CONTINUE=続行(&C)
+BTN_YES=はい(&Y)
+BTN_NO=いいえ(&N)
 
 
 [TTProxy]

@@ -1,4 +1,4 @@
-; Updated by TeraTerm Project (Jan 23 2015)
+; Updated by TeraTerm Project (Aug 29 2015)
 ; Last translated (Korean language) by Daehong Kim (Jul 25 2013)
 
 [Tera Term]
@@ -60,6 +60,7 @@ MENU_SETUP_GENERAL=일반(&G)...
 MENU_SETUP_ADDITION=추가설정(&D)...
 MENU_SETUP_SAVE=저장하기(&S)...
 MENU_SETUP_RESTORE=가져오기(&R)...
+MENU_OPEN_SETUP=Setup d&irectory...
 MENU_SETUP_LOADKEYMAP=키맵가져오기(&L)...
 
 MENU_CONTROL=제어(&O)
@@ -263,6 +264,14 @@ DLG_FILETRANS_ELAPSED=경과 시간:
 DLG_FILETRANS_START=시작(&S)
 DLG_FILETRANS_PAUSE=일시중지(&S)
 DLG_FILETRANS_CLOSE=닫기
+
+DLG_SETUPDIR_CAPTION=Tera Term: Setup directory
+DLG_SETUPDIR_INIFILE=Tera Term Configuration File
+DLG_SETUPDIR_KEYBOARDFILE=Keyboard Configuration File
+DLG_SETUPDIR_CYGTERMFILE=CygTerm Configuration File
+DLG_SETUPDIR_KNOWNHOSTSFILE=Known_hosts File
+DLG_SETUPDIR_NOFILE_ERROR=File does not exist.(%d)
+DLG_SETUPDIR_OPENFILE_ERROR=Cannot open file.(%d)
 
 ; commonlib.c
 MSG_WINSOCK_ERROR=윈속을 사용할 수 없습니다
@@ -699,6 +708,10 @@ DLG_SSHSETUP_FORWARDAGENT=agent 포워딩 활성화(&A)
 DLG_SSHSETUP_FORWARDAGENTCONFIRM=agent 포워딩 확인(&O)
 DLG_SSHSETUP_VERIFYHOSTKEYDNS=DNS로 호스트키 지문을 검증(&V)
 DLG_SSHSETUP_NOTICE=모든 설정은 다음 세션이 시작될 때 반영됩니다.
+DLG_SSHSETUP_HOSTKEY_ROTATION=Hostkey rotatio&n
+DLG_SSHSETUP_HOSTKEY_ROTATION_NO=No
+DLG_SSHSETUP_HOSTKEY_ROTATION_YES=Yes
+DLG_SSHSETUP_HOSTKEY_ROTATION_ASK=Ask
 
 FILEDLG_OPEN_KNOWNHOSTS_RW_TITLE=읽고쓰기의 known-host 파일을 선택하세요
 FILEDLG_OPEN_KNOWNHOSTS_RO_TITLE=추가하기 위한 읽기전용의 known-host 파일을 선택하세요
@@ -721,6 +734,11 @@ DLG_HOSTKEY_SSHFP_DIFFTYPE=DNS에서 찾은 호스트키 유형 불일치.
 DLG_HOSTKEY_DNSSEC_NG=DNS에서 안전하지 않은 지문 발견.
 DLG_HOSTKEY_DNSSEC_OK=DNS에서 안전한 지문 발견.
 
+DLG_HOSTKEY_ROTATION_TITLE=Hostkey rotation
+DLG_HOSTKEY_ROTATION_WARNING=You received the list of host keys from remote server `%s'.\nYou can choose to add %u new key(s) and remove %u obsolete key(s) from this machine to the known hosts list.\nAre you sure that you want to update known hosts file?
+DLG_HOSTKEY_ROTATION_ADD=%u new key(s):
+DLG_HOSTKEY_ROTATION_REMOVE=%u obsolete key(s):
+
 ; crypt.c
 MSG_ENCRYPT_ERROR1=%s 암호 오류(1): 바이트 %d (%d)
 MSG_ENCRYPT_ERROR2=%s 암호 오류(2)
@@ -742,8 +760,8 @@ MSG_FWD_MACHINEDOWN_ERROR=이 컴퓨터에 연결할 수 없습니다 (컴퓨터가 동작하지 않았
 MSG_FWD_ADDRNOTFOUTD_ERROR=이 컴퓨터의 주소를 찾을 수 없습니다
 MSG_FWD_CONNECT_ERROR=포워드 연결을 설정할 수 없습니다
 MSG_FWD_CHANNEL_ERROR=통신 오류 %s 포워드된 지역 포트 %s.\n%s (코드 %d).\n포워드된 연결이 종료됩니다.
-MSG_FWD_CHANNEL_OPEN_X_ERROR=서버가 이 컴퓨터를 통해 연결을 포워드 하려고 합니다.\n%s에 있는 X 서버로 연결을 요청했습니다 (표시 %d:%d).\n%s.\n포워드된 연결이 종료됩니다.
-MSG_FWD_CHANNEL_OPEN_ERROR=서버가 이 컴퓨터를 통해 연결을 포워드 하려고 합니다.\n%s로 연결을 요청했습니다 (포트 %s).\n%s.\n포워드된 연결이 종료됩니다.
+MSG_FWD_CHANNEL_OPEN_X_ERROR=서버가 이 컴퓨터를 통해 연결을 포워드 하려고 합니다.\n%s에 있는 X 서버로 연결을 요청했습니다 (표시 %d:%d).\n%s(code %d).\n포워드된 연결이 종료됩니다.
+MSG_FWD_CHANNEL_OPEN_ERROR=서버가 이 컴퓨터를 통해 연결을 포워드 하려고 합니다.\n%s로 연결을 요청했습니다 (포트 %s).\n%s(code %d).\n포워드된 연결이 종료됩니다.
 DLG_FWDMON_TITLE=TTSSH 포트 포워딩 감시
 MSG_FWD_HOSTILE_ATTACK_ERROR=IP %s를 가진 호스트가 포워드된 지역 포트 %d로 접속하려고 합니다.\n이것은 악의적인 공격의 한 종류일 수 있습니다.
 MSG_FWD_SOCKET_ERROR=포트 포워딩을 위한 포트에 필요한 일부 소켓들이 초기화되지 않았습니다.\n포워딩 서비스를 위한 일부 포트 일부를 사용할 수 없습니다.\n(errno %d)
@@ -806,6 +824,11 @@ MSG_SSH_SERVER_NO_AUTH_METHOD_ERROR=이 서버는 유효한 인증방법을 가지고 있지 않습
 MSG_SSH_SERVER_UNSUPPORT_AUTH_METHOD_ERROR=\n인증방법이 서버에 의해 지원되지 않습니다.
 MSG_SSH_CHANNEL_OPEN_ERROR=SSH2_MSG_CHANNEL_OPEN_FAILURE를 받았습니다.\n채널 [%d]: 원인: %s(%d) 메시지: %s
 MSG_SSH_NO_FREE_CHANNEL=새 채널을 열 수 없습니다. TTSSH가 이미 너무 많은 채널을 열고 있습니다.
+MSG_SSH_GEX_SIZE_TITLE=TTSSH: Confirm GEX group size
+MSG_SSH_GEX_SIZE_CANCEL=New connection is cancelled.
+MSG_SSH_GEX_SIZE_OUTOFRANGE=Received group size is out of range: %d
+MSG_SSH_GEX_SIZE_SMALLER=Received group size is smaller than the requested minimal size.\nrequested: %d, received: %d\nAre you sure that you want to accept received group?
+MSG_SSH_GEX_SIZE_LARGER=Received group size is larger than the requested maximal size.\nrequested: %d, received: %d\nAre you sure that you want to accept received group?
 
 ; ttxssh.c
 MSG_UNKNOWN_OPTION_ERROR=인식되지 않는 명령행 옵션: %s
@@ -832,6 +855,8 @@ BTN_CANCEL=취소
 BTN_CLOSE=닫기
 BTN_DISCONNECT=연결끊음(&D)
 BTN_CONTINUE=계속(&C)
+BTN_YES=&Yes
+BTN_NO=&No
 
 
 [TTProxy]

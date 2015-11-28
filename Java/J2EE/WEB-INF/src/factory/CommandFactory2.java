@@ -5,15 +5,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import command.AbstractCommand;
+import context.RequestContext;
 
 public abstract class CommandFactory2 {
-   public static AbstractCommand getCommand(String path){
+   public static AbstractCommand getCommand(RequestContext reqc){
       AbstractCommand command = null;
       Properties prop = new Properties();
 
       try{
-         prop.load(new FileInputStream("commands.Properties"));
-         String name = prop.getProperty(path);
+         prop.load(new FileInputStream("C:\\GitHub\\exercise\\Java\\J2EE\\commands.properties"));
+         String name = prop.getProperty(reqc.getCommandPath());
+         System.out.println(name);
          Class c = Class.forName(name);
          command = (AbstractCommand)c.newInstance();
       }catch(FileNotFoundException e){

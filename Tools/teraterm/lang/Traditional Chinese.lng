@@ -1,4 +1,4 @@
-; Updated by TeraTerm Project (Jan 23 2015)
+; Updated by TeraTerm Project (Aug 29 2015)
 ; Traditional Chinese Language by kikiqqp (Sep 20 2014) 
 
 [Tera Term]
@@ -60,6 +60,7 @@ MENU_SETUP_GENERAL=設定(&G)...
 MENU_SETUP_ADDITION=附加設定(&D)...
 MENU_SETUP_SAVE=儲存設定(&S)...
 MENU_SETUP_RESTORE=載入設定(&R)...
+MENU_OPEN_SETUP=Setup d&irectory...
 MENU_SETUP_LOADKEYMAP=導入鍵盤映射(&L)...
 
 MENU_CONTROL=控制(&O)
@@ -263,6 +264,14 @@ DLG_FILETRANS_ELAPSED=耗時：
 DLG_FILETRANS_START=開始(&S)
 DLG_FILETRANS_PAUSE=暫停(&S)
 DLG_FILETRANS_CLOSE=關閉
+
+DLG_SETUPDIR_CAPTION=Tera Term: Setup directory
+DLG_SETUPDIR_INIFILE=Tera Term Configuration File
+DLG_SETUPDIR_KEYBOARDFILE=Keyboard Configuration File
+DLG_SETUPDIR_CYGTERMFILE=CygTerm Configuration File
+DLG_SETUPDIR_KNOWNHOSTSFILE=Known_hosts File
+DLG_SETUPDIR_NOFILE_ERROR=File does not exist.(%d)
+DLG_SETUPDIR_OPENFILE_ERROR=Cannot open file.(%d)
 
 ; commonlib.c
 MSG_WINSOCK_ERROR=無法使用 Winsock
@@ -699,6 +708,10 @@ DLG_SSHSETUP_FORWARDAGENT=啟用代理轉發(&A)
 DLG_SSHSETUP_FORWARDAGENTCONFIRM=確認代理轉發(&O)
 DLG_SSHSETUP_VERIFYHOSTKEYDNS=DNS驗證主機密鑰指紋(&V)
 DLG_SSHSETUP_NOTICE=所有更改都將在下次連線時生效。
+DLG_SSHSETUP_HOSTKEY_ROTATION=Hostkey rotatio&n
+DLG_SSHSETUP_HOSTKEY_ROTATION_NO=No
+DLG_SSHSETUP_HOSTKEY_ROTATION_YES=Yes
+DLG_SSHSETUP_HOSTKEY_ROTATION_ASK=Ask
 
 FILEDLG_OPEN_KNOWNHOSTS_RW_TITLE=選擇一個可讀寫的hosts文件
 FILEDLG_OPEN_KNOWNHOSTS_RO_TITLE=追加一個只讀的hosts文件
@@ -721,6 +734,11 @@ DLG_HOSTKEY_SSHFP_DIFFTYPE=DNS中找到了密鑰指紋資訊，但是與主機密鑰類型不一致！
 DLG_HOSTKEY_DNSSEC_NG=DNS中發現弱密碼。
 DLG_HOSTKEY_DNSSEC_OK=DNS中發現強密碼。
 
+DLG_HOSTKEY_ROTATION_TITLE=Hostkey rotation
+DLG_HOSTKEY_ROTATION_WARNING=You received the list of host keys from remote server `%s'.\nYou can choose to add %u new key(s) and remove %u obsolete key(s) from this machine to the known hosts list.\nAre you sure that you want to update known hosts file?
+DLG_HOSTKEY_ROTATION_ADD=%u new key(s):
+DLG_HOSTKEY_ROTATION_REMOVE=%u obsolete key(s):
+
 ; crypt.c
 MSG_ENCRYPT_ERROR1=%s加密錯誤(1): bytes %d (%d)
 MSG_ENCRYPT_ERROR2=%s加密錯誤(2)
@@ -742,8 +760,8 @@ MSG_FWD_MACHINEDOWN_ERROR=設備無法連接（可能設備未啟動）
 MSG_FWD_ADDRNOTFOUTD_ERROR=未找到設備地址
 MSG_FWD_CONNECT_ERROR=無法建立轉發連接
 MSG_FWD_CHANNEL_ERROR=通信錯誤，發生在 %s 轉發本地 %s 時。\n%s（代碼 %d）。\n轉發連接將被關閉。
-MSG_FWD_CHANNEL_OPEN_X_ERROR=伺服器試圖通過本機轉發一個連接。\n它請求到 %s X伺服器的連接（顯示 %d:%d）。\n%s。\n轉發連接將被關閉。
-MSG_FWD_CHANNEL_OPEN_ERROR=伺服器試圖通過本機轉發一個連接。\n它請求到 %s 的連接（端口 %s）。\n%s.\n轉發連接將被關閉。
+MSG_FWD_CHANNEL_OPEN_X_ERROR=伺服器試圖通過本機轉發一個連接。\n它請求到 %s X伺服器的連接（顯示 %d:%d）。\n%s(code %d)。\n轉發連接將被關閉。
+MSG_FWD_CHANNEL_OPEN_ERROR=伺服器試圖通過本機轉發一個連接。\n它請求到 %s 的連接（端口 %s）。\n%s(code %d).\n轉發連接將被關閉。
 DLG_FWDMON_TITLE=TTSSH 端口轉發監視器
 MSG_FWD_HOSTILE_ATTACK_ERROR=IP 為 %s 的主機在試圖連接到本地轉發端口 %d。\n這可能是某種惡意攻擊。
 MSG_FWD_SOCKET_ERROR=端口轉發需要的一些套接字初始化失敗。\n部分端口轉發服務可能無法使用。\n（錯誤編號 %d）
@@ -806,6 +824,11 @@ MSG_SSH_SERVER_NO_AUTH_METHOD_ERROR=沒有有效用於該伺服器的認證方式。
 MSG_SSH_SERVER_UNSUPPORT_AUTH_METHOD_ERROR=\n伺服器不支持該認證方式。
 MSG_SSH_CHANNEL_OPEN_ERROR=收到 SSH2_MSG_CHANNEL_OPEN_FAILURE。\n通道 [%d]: 原因: %s(%d) 訊息: %s
 MSG_SSH_NO_FREE_CHANNEL=無法打開新通道。TTSSH 已經打開了全部通道。
+MSG_SSH_GEX_SIZE_TITLE=TTSSH: Confirm GEX group size
+MSG_SSH_GEX_SIZE_CANCEL=New connection is cancelled.
+MSG_SSH_GEX_SIZE_OUTOFRANGE=Received group size is out of range: %d
+MSG_SSH_GEX_SIZE_SMALLER=Received group size is smaller than the requested minimal size.\nrequested: %d, received: %d\nAre you sure that you want to accept received group?
+MSG_SSH_GEX_SIZE_LARGER=Received group size is larger than the requested maximal size.\nrequested: %d, received: %d\nAre you sure that you want to accept received group?
 
 ; ttxssh.c
 MSG_UNKNOWN_OPTION_ERROR=無效的命令行選項：%s
@@ -832,6 +855,8 @@ BTN_CANCEL=取消
 BTN_CLOSE=關閉
 BTN_DISCONNECT=中斷連接(&D)
 BTN_CONTINUE=繼續(&C)
+BTN_YES=&Yes
+BTN_NO=&No
 
 
 [TTProxy]

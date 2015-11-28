@@ -1,5 +1,5 @@
-; Updated by TeraTerm Project (Jan 23 2015)
-; Last translated (Russian language) by Ryumik Sergey (Sep 03 2014)
+; Updated by TeraTerm Project (Aug 29 2015)
+; Last translated (Russian language) by Ryumik Sergey (Mar 14 2015)
 
 [Tera Term]
 DLG_SYSTEM_FONT=System,14,0
@@ -60,6 +60,7 @@ MENU_SETUP_GENERAL=&Общие...
 MENU_SETUP_ADDITION=&Дополнительные настройки...
 MENU_SETUP_SAVE=&Сохранить настройки...
 MENU_SETUP_RESTORE=&Восстановить настройки...
+MENU_OPEN_SETUP=&Папка настроек...
 MENU_SETUP_LOADKEYMAP=&Загрузить настройки клавиш...
 
 MENU_CONTROL=&Управление
@@ -264,6 +265,14 @@ DLG_FILETRANS_START=&Старт
 DLG_FILETRANS_PAUSE=&Пауза
 DLG_FILETRANS_CLOSE=Закрыть
 
+DLG_SETUPDIR_CAPTION=Tera Term: Setup directory
+DLG_SETUPDIR_INIFILE=Tera Term Configuration File
+DLG_SETUPDIR_KEYBOARDFILE=Keyboard Configuration File
+DLG_SETUPDIR_CYGTERMFILE=CygTerm Configuration File
+DLG_SETUPDIR_KNOWNHOSTSFILE=Known_hosts File
+DLG_SETUPDIR_NOFILE_ERROR=File does not exist.(%d)
+DLG_SETUPDIR_OPENFILE_ERROR=Cannot open file.(%d)
+
 ; commonlib.c
 MSG_WINSOCK_ERROR=Не удается использовать winsock
 MSG_INVALID_HOST_ERROR=Неверный хост
@@ -461,6 +470,7 @@ BTN_CONTINUE=&Продолжить
 
 MSG_MACRO_CONF=MACRO: подтверждение
 MSG_MACRO_HALT_SCRIPT=Вы уверены, что хотите остановить этот макрос?
+
 ; common
 MSG_ERROR=ОШИБКА
 MSG_TT_ERROR=Tera Term: Ошибка
@@ -637,11 +647,11 @@ DLG_KEYGEN_SAVEPRIVATE=&Закрытый ключ
 DLG_KEYGEN_GENERATE=&Генерация
 DLG_KEYGEN_BITS=&Биты:
 DLG_KEYGEN_BCRYPT_KDF=хеш "bcrypt" &KDF
-DLG_KEYGEN_BCRYPT_ROUNDS=&Number of rounds:
+DLG_KEYGEN_BCRYPT_ROUNDS=&Количество раундов:
 
 MSG_KEYBITS_MIN_ERROR=Битов ключа слишком мало!
-MSG_BCRYPT_ROUNDS_MIN_ERROR=The number of rounds is too small.
-MSG_BCRYPT_ROUNDS_MAX_ERROR=The number of rounds is too large.
+MSG_BCRYPT_ROUNDS_MIN_ERROR=Раундов слишком мало.
+MSG_BCRYPT_ROUNDS_MAX_ERROR=Раундов слишком много.
 MSG_KEYGEN_GENERATING="Генерация ключа..."
 MSG_KEYGEN_GENERATED="Ключ сгенерирован успешно!"
 
@@ -698,6 +708,11 @@ DLG_SSHSETUP_FORWARDAGENT=&Включить агент пересылки
 DLG_SSHSETUP_FORWARDAGENTCONFIRM=&Подтвердить агента пересылки
 DLG_SSHSETUP_VERIFYHOSTKEYDNS=&Проверить ключ хоста в DNS
 DLG_SSHSETUP_NOTICE=Все параметры вступят в силу в следующей сессии.
+DLG_SSHSETUP_HOSTKEY_ROTATION=Hostkey rotatio&n
+DLG_SSHSETUP_HOSTKEY_ROTATION_NO=No
+DLG_SSHSETUP_HOSTKEY_ROTATION_YES=Yes
+DLG_SSHSETUP_HOSTKEY_ROTATION_ASK=Ask
+
 FILEDLG_OPEN_KNOWNHOSTS_RW_TITLE=Выберите файл чтения/записи известных хостов
 FILEDLG_OPEN_KNOWNHOSTS_RO_TITLE=Выберите файл чтения известных хостов, чтобы добавить
 
@@ -718,6 +733,11 @@ DLG_HOSTKEY_SSHFP_MISMATCH=Несоответствие ключа хоста в DNS.
 DLG_HOSTKEY_SSHFP_DIFFTYPE=Несоответствие типа ключа хоста в DNS.
 DLG_HOSTKEY_DNSSEC_NG=Найден ненадежный пароль в DNS.
 DLG_HOSTKEY_DNSSEC_OK=Найден надежный пароль в DNS.
+
+DLG_HOSTKEY_ROTATION_TITLE=Hostkey rotation
+DLG_HOSTKEY_ROTATION_WARNING=You received the list of host keys from remote server `%s'.\nYou can choose to add %u new key(s) and remove %u obsolete key(s) from this machine to the known hosts list.\nAre you sure that you want to update known hosts file?
+DLG_HOSTKEY_ROTATION_ADD=%u new key(s):
+DLG_HOSTKEY_ROTATION_REMOVE=%u obsolete key(s):
 
 ; crypt.c
 MSG_ENCRYPT_ERROR1=%s ошибка шифрования(1): байты %d (%d)
@@ -740,8 +760,8 @@ MSG_FWD_MACHINEDOWN_ERROR=Компьютеру не удалось связаться (возможно, что компьют
 MSG_FWD_ADDRNOTFOUTD_ERROR=Не найден адрес компьютера
 MSG_FWD_CONNECT_ERROR=Соединение пересылки не может быть установлено
 MSG_FWD_CHANNEL_ERROR=Ошибка связи %s локальной пересылки %s.\n%s (код %d).\nСоединение пересылки будет закрыто
-MSG_FWD_CHANNEL_OPEN_X_ERROR=Сервер попытался перенаправить соединение через этот компьютер.\nЭто требуется для соединения с X-сервером %s (экран %d:%d).\n%s.\nСоединение пересылки будет закрыто.
-MSG_FWD_CHANNEL_OPEN_ERROR=Сервер попытался перенаправить соединение через этот компьютер.\nЭто требуется для соединения через %s (порт %s).\n%s.\nСоединение пересылки будет закрыто.
+MSG_FWD_CHANNEL_OPEN_X_ERROR=Сервер попытался перенаправить соединение через этот компьютер.\nЭто требуется для соединения с X-сервером %s (экран %d:%d).\n%s(code %d).\nСоединение пересылки будет закрыто.
+MSG_FWD_CHANNEL_OPEN_ERROR=Сервер попытался перенаправить соединение через этот компьютер.\nЭто требуется для соединения через %s (порт %s).\n%s(code %d).\nСоединение пересылки будет закрыто.
 DLG_FWDMON_TITLE=TTSSH мониторинг порта пересылки
 MSG_FWD_HOSTILE_ATTACK_ERROR=Хост с IP-адресом %s пытался подключиться к локальному порту пересылки %d.\nЭто может быть враждебной атакой!
 MSG_FWD_SOCKET_ERROR=Некоторые сокеты, необходимые для портов пересылки, не могут быть инициализированы.\nНекоторые услуги портов пересылки могут быть недоступны.\n(errno %d)
@@ -804,6 +824,11 @@ MSG_SSH_SERVER_NO_AUTH_METHOD_ERROR=Сервер не имеет надежного метода аутентифика
 MSG_SSH_SERVER_UNSUPPORT_AUTH_METHOD_ERROR=\nМетод проверки аутентификации не поддерживается сервером.
 MSG_SSH_CHANNEL_OPEN_ERROR=Было принято сообщение SSH2_MSG_CHANNEL_OPEN_FAILURE.\nКанал [%d]: причина: %s(%d) сообщение: %s
 MSG_SSH_NO_FREE_CHANNEL=Не удалось открыть новый канал. В TTSSH уже открыто очень много каналов.
+MSG_SSH_GEX_SIZE_TITLE=TTSSH: Confirm GEX group size
+MSG_SSH_GEX_SIZE_CANCEL=New connection is cancelled.
+MSG_SSH_GEX_SIZE_OUTOFRANGE=Received group size is out of range: %d
+MSG_SSH_GEX_SIZE_SMALLER=Received group size is smaller than the requested minimal size.\nrequested: %d, received: %d\nAre you sure that you want to accept received group?
+MSG_SSH_GEX_SIZE_LARGER=Received group size is larger than the requested maximal size.\nrequested: %d, received: %d\nAre you sure that you want to accept received group?
 
 ; ttxssh.c
 MSG_UNKNOWN_OPTION_ERROR=Неверный параметр в командной строке: %s
@@ -830,6 +855,8 @@ BTN_CANCEL=Выход
 BTN_CLOSE=Закрыть
 BTN_DISCONNECT=&Разъединение
 BTN_CONTINUE=&Продолжение
+BTN_YES=&Yes
+BTN_NO=&No
 
 
 [TTProxy]

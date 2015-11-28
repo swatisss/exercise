@@ -1,4 +1,4 @@
-; Updated by TeraTerm Project (Jan 23 2015)
+; Updated by TeraTerm Project (Aug 29 2015)
 ; Last translated (French language) by Francois MOCQ (Jul 21 2010)
 
 [Tera Term]
@@ -60,6 +60,7 @@ MENU_SETUP_GENERAL=&General...
 MENU_SETUP_ADDITION=Plus de reglages...
 MENU_SETUP_SAVE=&Sauvegarder setup...
 MENU_SETUP_RESTORE=&Restaurer setup...
+MENU_OPEN_SETUP=Setup d&irectory...
 MENU_SETUP_LOADKEYMAP=Charger jeu de touches...
 
 MENU_CONTROL=C&ontrôle
@@ -263,6 +264,14 @@ DLG_FILETRANS_ELAPSED=Elapsed time:
 DLG_FILETRANS_START=Démarrage
 DLG_FILETRANS_PAUSE=Pau&se
 DLG_FILETRANS_CLOSE=Fermer
+
+DLG_SETUPDIR_CAPTION=Tera Term: Setup directory
+DLG_SETUPDIR_INIFILE=Tera Term Configuration File
+DLG_SETUPDIR_KEYBOARDFILE=Keyboard Configuration File
+DLG_SETUPDIR_CYGTERMFILE=CygTerm Configuration File
+DLG_SETUPDIR_KNOWNHOSTSFILE=Known_hosts File
+DLG_SETUPDIR_NOFILE_ERROR=File does not exist.(%d)
+DLG_SETUPDIR_OPENFILE_ERROR=Cannot open file.(%d)
 
 ; commonlib.c
 MSG_WINSOCK_ERROR=Impossible d'utiliser winsock
@@ -698,6 +707,10 @@ DLG_SSHSETUP_FORWARDAGENT=Activer &agent forwarding
 DLG_SSHSETUP_FORWARDAGENTCONFIRM=C&onfirm agent forwarding
 DLG_SSHSETUP_VERIFYHOSTKEYDNS=&Verify hostkey fingerprint by DNS
 DLG_SSHSETUP_NOTICE=Toutes options actives prochaine ouverture de session
+DLG_SSHSETUP_HOSTKEY_ROTATION=Hostkey rotatio&n
+DLG_SSHSETUP_HOSTKEY_ROTATION_NO=No
+DLG_SSHSETUP_HOSTKEY_ROTATION_YES=Yes
+DLG_SSHSETUP_HOSTKEY_ROTATION_ASK=Ask
 
 FILEDLG_OPEN_KNOWNHOSTS_RW_TITLE=Choisir un fichier hôtes connus en R/W
 FILEDLG_OPEN_KNOWNHOSTS_RO_TITLE=Choisir un fichier hôtes connus en lect. seule à ajouter
@@ -712,6 +725,18 @@ DLG_UNKNOWNHOST_WARNING=Il n'y a pas d'entrée pour le serveur "#################
 DLG_UNKNOWNHOST_WARNING2=Si vous choisissez d'ajouter cette machine à la liste d'hôtes connus et de continuer, vous ne recevrez plus cet avertissement.
 DLG_UNKNOWNHOST_FINGERPRINT=L'empreinte de la clé du serveur est:
 DLG_UNKNOWNHOST_ADD=&Ajouter cette machine et sa clé à la liste des hôtes connus
+
+DLG_HOSTKEY_SSHFP_NOTFOUND=No host key fingerprint found in DNS.
+DLG_HOSTKEY_SSHFP_MATCH=Matching host key fingerprint found in DNS.
+DLG_HOSTKEY_SSHFP_MISMATCH=Mismatching host key fingerprint found in DNS.
+DLG_HOSTKEY_SSHFP_DIFFTYPE=Mismatching host key type found in DNS.
+DLG_HOSTKEY_DNSSEC_NG=Found insecure fingerprint in DNS.
+DLG_HOSTKEY_DNSSEC_OK=Found secure fingerprint in DNS.
+
+DLG_HOSTKEY_ROTATION_TITLE=Hostkey rotation
+DLG_HOSTKEY_ROTATION_WARNING=You received the list of host keys from remote server `%s'.\nYou can choose to add %u new key(s) and remove %u obsolete key(s) from this machine to the known hosts list.\nAre you sure that you want to update known hosts file?
+DLG_HOSTKEY_ROTATION_ADD=%u new key(s):
+DLG_HOSTKEY_ROTATION_REMOVE=%u obsolete key(s):
 
 ; crypt.c
 MSG_ENCRYPT_ERROR1=%s erreur cryptage(1): octets %d (%d)
@@ -734,8 +759,8 @@ MSG_FWD_MACHINEDOWN_ERROR=La machine ne peut pas être contactée (la machine est 
 MSG_FWD_ADDRNOTFOUTD_ERROR=Pas d'adresse trouvée pour la machine
 MSG_FWD_CONNECT_ERROR=La connexion n'a pas pu être établie
 MSG_FWD_CHANNEL_ERROR=Erreur de communication %s redirigé en local %s.\n%s (code %d).\nLa connexion redirigée va être fermée.
-MSG_FWD_CHANNEL_OPEN_X_ERROR=Le serveur a essayé de rediriger une connexion à travers cette machine.\nIl a demandé une connexion au serveur X sur %s (display %d:%d).\n%s.\nLa connection redirigée va être fermée.
-MSG_FWD_CHANNEL_OPEN_ERROR=Le serveur a essayé de rediriger une connexion à travers cette machine.\nIl a demandé une connexion sur %s (port %s).\n%s.\nLa connection redirigée va être fermée.
+MSG_FWD_CHANNEL_OPEN_X_ERROR=Le serveur a essayé de rediriger une connexion à travers cette machine.\nIl a demandé une connexion au serveur X sur %s (display %d:%d).\n%s(code %d).\nLa connection redirigée va être fermée.
+MSG_FWD_CHANNEL_OPEN_ERROR=Le serveur a essayé de rediriger une connexion à travers cette machine.\nIl a demandé une connexion sur %s (port %s).\n%s(code %d).\nLa connection redirigée va être fermée.
 DLG_FWDMON_TITLE=Moniteur de redirection de port TTSSH
 MSG_FWD_HOSTILE_ATTACK_ERROR=L4hôte d'adresse IP %s a essayé de se connecter au port local redirigé %d.\nC'est peut-être une forme d'attaque hostile.
 MSG_FWD_SOCKET_ERROR=Un ou plusieurs sockets nécessaires à la redirection de port n'ont pu être initialisés.\nCertains services de redirection de port ne seront peut-être pas disponibles.\n(erreur N° %d)
@@ -798,6 +823,11 @@ MSG_SSH_SERVER_NO_AUTH_METHOD_ERROR=The server doesn't have valid authentication
 MSG_SSH_SERVER_UNSUPPORT_AUTH_METHOD_ERROR=\nLa méthode d'authentification n'est pas supportée par le serveur.
 MSG_SSH_CHANNEL_OPEN_ERROR=Un message SSH2 d'erreur d'ouverture de canal a été reçu.\ncanal [%d]: cause: %s(%d) message: %s
 MSG_SSH_NO_FREE_CHANNEL=Impossible d'ouvrir un nouveau canal. TTSSH tente actuellement d'ouvrir trop de canaux.
+MSG_SSH_GEX_SIZE_TITLE=TTSSH: Confirm GEX group size
+MSG_SSH_GEX_SIZE_CANCEL=New connection is cancelled.
+MSG_SSH_GEX_SIZE_OUTOFRANGE=Received group size is out of range: %d
+MSG_SSH_GEX_SIZE_SMALLER=Received group size is smaller than the requested minimal size.\nrequested: %d, received: %d\nAre you sure that you want to accept received group?
+MSG_SSH_GEX_SIZE_LARGER=Received group size is larger than the requested maximal size.\nrequested: %d, received: %d\nAre you sure that you want to accept received group?
 
 ; ttxssh.c
 MSG_UNKNOWN_OPTION_ERROR=Option inconnue sur la ligne de commande: %s
@@ -824,6 +854,8 @@ BTN_CANCEL=Effacer
 BTN_CLOSE=Fermer
 BTN_DISCONNECT=&Déconnecter
 BTN_CONTINUE=&Continuer
+BTN_YES=&Yes
+BTN_NO=&No
 
 
 [TTProxy]
