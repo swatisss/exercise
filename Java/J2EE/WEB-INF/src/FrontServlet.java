@@ -19,6 +19,7 @@ public class FrontServlet extends HttpServlet{
     throws IOException, ServletException{
       req.setCharacterEncoding("utf-8");
 
+      System.out.println("きてる？");
       // ApplicationControllerの実装クラスのインスタンスを取得
       ApplicationController app = new WebApplicationController();
 

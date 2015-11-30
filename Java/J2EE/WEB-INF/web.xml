@@ -5,6 +5,18 @@
    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
    version="3.0"
    metadata-complete="true">
+   <welcome-file-list>
+      <welcome-file>/WEB-INF/jsp/start.jsp</welcome-file>
+   </welcome-file-list>
+
+   <servlet>
+     <servlet-name>FrontServlet</servlet-name>
+     <servlet-class>FrontServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+     <servlet-name>FrontServlet</servlet-name>
+     <url-pattern>/</url-pattern>
+   </servlet-mapping>
 
    <!-- フィルター -->
    <!-- <filter>
@@ -45,23 +57,23 @@
      <dispatcher>REQUEST</dispatcher>
    </filter-mapping> -->
 
-   <servlet>
-       <servlet-name>productorder</servlet-name>
-       <jsp-file>/productorder.jsp</jsp-file>
+   <!-- <servlet>
+       <servlet-name>input</servlet-name>
+       <jsp-file>/input.jsp</jsp-file>
    </servlet>
    <servlet-mapping>
-       <servlet-name>productorder</servlet-name>
-       <url-pattern>/productorder</url-pattern>
+       <servlet-name>input</servlet-name>
+       <url-pattern>/input</url-pattern>
    </servlet-mapping>
 
    <servlet>
-       <servlet-name>orderlogin</servlet-name>
-       <jsp-file>/orderlogin.jsp</jsp-file>
+       <servlet-name>view</servlet-name>
+       <jsp-file>/view.jsp</jsp-file>
    </servlet>
    <servlet-mapping>
-       <servlet-name>orderlogin</servlet-name>
-       <url-pattern>/orderlogin</url-pattern>
-   </servlet-mapping>
+       <servlet-name>view</servlet-name>
+       <url-pattern>/view</url-pattern>
+   </servlet-mapping> -->
 
    <servlet>
        <servlet-name>productinput</servlet-name>
@@ -108,12 +120,4 @@
         <url-pattern>/confirm</url-pattern>
     </servlet-mapping> -->
     <!-- FrontControllerPattern -->
-    <servlet>
-      <servlet-name>FrontServlet</servlet-name>
-      <servlet-class>FrontServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-      <servlet-name>FrontServlet</servlet-name>
-      <url-pattern>/front/*</url-pattern>
-    </servlet-mapping>
 </web-app>
